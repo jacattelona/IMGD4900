@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 /*
- * This script is meant to be used as demonstration and experimentation of  
+ * This script, and all others in the TestScripts Folder, is meant to be used as demonstration and experimentation of  
  * the audio effect adjustments used in the complete project
  * The code may be ugly, or unreadable, or inefficient, but it will be re-written
  * in another script for the final project
@@ -31,11 +32,19 @@ public class AudioTestScript : MonoBehaviour
     Transform t;
 
     public AudioClip[] drums;
-    public AudioChildren children;
+    public AudioChildren leadChildren;
+    public AudioChildren drumChildren;
 
     float cRate = .5f;
     float rRate = 2500f;
 
+    int audioChoice = 0;
+
+    public AudioMixerGroup yesReverb;
+    public AudioMixerGroup noReverb;
+    public AudioMixer mixer;
+
+    
     //Get all audio components attached to the object
     void Start()
     {
@@ -50,46 +59,55 @@ public class AudioTestScript : MonoBehaviour
     //Updates the Reverb and Chorus
     void Update()
     {
+        audioChoice = 0;
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            aud.Stop();
-            aud.PlayOneShot(drums[0]);
-
-            children.StopAll();
-            children.StartAll();
-        }
-
+            audioChoice = 1;
         if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            aud.Stop();
-            aud.PlayOneShot(drums[1]);
-
-            children.StopAll();
-            children.StartAll();
-        }
-
+            audioChoice = 2;
         if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            aud.Stop();
-            aud.PlayOneShot(drums[2]);
+            audioChoice = 3;
 
-            children.StopAll();
-            children.StartAll();
-        }
+        if (Input.GetKeyDown(KeyCode.Alpha8))
+            audioChoice = 8;
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+            audioChoice = 9;
 
-        if (aud.isPlaying)
+        if (audioChoice != 0)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha8))
+            if (!drumChildren.isPlaying && audioChoice < 4)
             {
-                children.UnMute(0);
+                drumChildren.StartAll();
+                leadChildren.StartAll();
+
+                drumChildren.UnMute(audioChoice - 1);
             }
 
-            if (Input.GetKeyDown(KeyCode.Alpha9))
+            else if (drumChildren.isPlaying)
             {
-                children.UnMute(1);
+                if (audioChoice < 4)
+                {
+                    drumChildren.UnMute(audioChoice - 1);
+                }
+
+                else
+                {
+                    leadChildren.UnMute(audioChoice - 8);
+                }
+
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            drumChildren.UpdateMixer(yesReverb);
+            leadChildren.UpdateMixer(yesReverb);
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            drumChildren.UpdateMixer(noReverb);
+            leadChildren.UpdateMixer(noReverb);
+        }
         UpdateChorus();
         UpdateReverb();
     }
@@ -136,6 +154,7 @@ public class AudioTestScript : MonoBehaviour
         trueScale += .5f;
         t.localScale = new Vector3(trueScale, trueScale, trueScale);
 
+        mixer.SetFloat("VerbLevel", reverb.room);
     }
 
 
@@ -157,5 +176,7 @@ public class AudioTestScript : MonoBehaviour
         //Cube gets darker the less chorus is active
         float col = chorus.depth * 2f;
         mat.color = new Color(col, col, col);
+
+        mixer.SetFloat("DepthLevel", chorus.depth);
     }
 }
