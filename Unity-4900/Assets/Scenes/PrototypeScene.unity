@@ -323,7 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1b77185e15c6474e95f536f02918bb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixer: {fileID: 0}
+  mixer: {fileID: 24100000, guid: ae77c9fb9a08e7247ab2e5073c96c827, type: 2}
   drums: {fileID: 0}
   leads: {fileID: 0}
   eqs: []
