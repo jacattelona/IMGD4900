@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class TreeManager : MonoBehaviour
 {
-    int beat = 33;
     int beatCount = 0;
     int count = 0;
+
+    string[] rocks = { "Rock1", "Rock2", "Rock3", "Rock4", "Rock5" };
+    string[] settings = { "CorrectDrum", "CorrectMelody", "CorrectEQ", "CorrectReverb", "CorrectChorus" };
+
     public enum TreeState
     {
         Nothing,
@@ -32,7 +35,26 @@ public class TreeManager : MonoBehaviour
     public void StopDancing()
     {
         state = TreeState.Nothing;
-        anim.SetBool("CorrectLoop", false);
+        anim.SetBool("CorrectDrum", false);
+    }
+
+    public void ChooseRock(int index)
+    {
+        anim.SetBool(rocks[index], true);
+        if (anim.GetBool(settings[index]))
+        {
+            anim.SetBool(settings[index], false);
+            state = TreeState.Waiting;
+        }
+    }
+
+    public void NoRock()
+    {
+        foreach(string rock in rocks)
+        {
+            anim.SetBool(rock, false);
+            state = TreeState.Nothing;
+        }
     }
 
     void FixedUpdate()
@@ -54,16 +76,12 @@ public class TreeManager : MonoBehaviour
             {
                 count = 0;
                 beatCount++;
-
             }
         }
 
-        if (count == 0)
-            print("Beat");
         if (state == TreeState.Waiting && count == 0)
         {
-            //print("GO");
-            anim.SetBool("CorrectLoop", true);
+            anim.SetBool("CorrectDrum", true);
             state = TreeState.Dancing;
         }
 

@@ -54,6 +54,10 @@ public class SoundManager : MonoBehaviour
                 else
                 {
                     leads.UnMute(audioChoice - 8);
+                    if (audioChoice == 8)
+                        tree.ChooseRock(0);
+                    else if (audioChoice != 8)
+                        tree.NoRock();
                 }
 
             }
