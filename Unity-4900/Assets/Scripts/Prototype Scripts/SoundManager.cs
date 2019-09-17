@@ -9,6 +9,7 @@ public class SoundManager : MonoBehaviour
 
     public SoundGroup drums;
     public SoundGroup leads;
+    public SoundGroup background;
 
     public AudioMixerGroup[] eqs;
 
@@ -64,6 +65,9 @@ public class SoundManager : MonoBehaviour
                     tree.StartDancing(currentRock);
                 else
                     tree.StopDancing(currentRock);
+
+                if (tree.IsCorrect(0) && tree.IsCorrect(1) && tree.IsCorrect(2))
+                    background.UnMute(0);
             }
         }
 
@@ -74,6 +78,7 @@ public class SoundManager : MonoBehaviour
             {
                 drums.StartAll();
                 leads.StartAll();
+                background.StartAll();
 
                 drums.UnMute(audioChoice - 1);
                 if (audioChoice == 2)
@@ -106,6 +111,8 @@ public class SoundManager : MonoBehaviour
 
 
         }
+        if (tree.IsCorrect(0) && tree.IsCorrect(1) && tree.IsCorrect(2))
+            background.UnMute(0);
     }
 
     public void SetRock(int rock)
