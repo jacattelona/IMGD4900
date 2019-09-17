@@ -14,56 +14,103 @@ public class SoundManager : MonoBehaviour
 
     public TreeManager tree;
 
+    int currentRock = -1;
+    float chorusVal = 0;
+
     void Update()
     {
         int audioChoice = 0;
+        if (currentRock == 0)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+                audioChoice = 1;
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+                audioChoice = 2;
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+                audioChoice = 3;
+        }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-            audioChoice = 1;
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-            audioChoice = 2;
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-            audioChoice = 3;
+        if (currentRock == 1 && tree.IsCorrect(0))
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+                audioChoice = 8;
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+                audioChoice = 9;
+        }
 
-        if (Input.GetKeyDown(KeyCode.Alpha8))
-            audioChoice = 8;
-        if (Input.GetKeyDown(KeyCode.Alpha9))
-            audioChoice = 9;
+        if (currentRock == 2 && tree.IsCorrect(1))
+        {
+            bool temp = false;
+            if (Input.GetKey(KeyCode.Alpha1))
+            {
+                chorusVal -= (Time.deltaTime * .2f);
+                temp = true;
+            }
+            if (Input.GetKey(KeyCode.Alpha2))
+            {
+                chorusVal += (Time.deltaTime * .2f);
+                temp = true;
+            }
+
+            if (chorusVal > 1.0f)
+                chorusVal = 1.0f;
+            if (chorusVal < 0)
+                chorusVal = 0;
+            //print(chorusVal);
+            if (temp)
+            {
+                SetChorus(chorusVal);
+                if (chorusVal > .5f && chorusVal < .7f)
+                    tree.StartDancing(currentRock);
+                else
+                    tree.StopDancing(currentRock);
+            }
+        }
+
 
         if (audioChoice != 0)
         {
-            if (!drums.GetPlaying() && audioChoice < 4)
+            if (!drums.GetPlaying() && audioChoice <= 4)
             {
                 drums.StartAll();
                 leads.StartAll();
 
                 drums.UnMute(audioChoice - 1);
+                if (audioChoice == 2)
+                    tree.StartDancing(currentRock);
+                else if (audioChoice != 2)
+                    tree.StopDancing(currentRock);
             }
 
             else if (drums.GetPlaying())
             {
-                if (audioChoice < 4)
+                if (audioChoice <= 4)
                 {
                     drums.UnMute(audioChoice - 1);
                     if (audioChoice == 2)
-                        tree.StartDancing();
+                        tree.StartDancing(currentRock);
                     else if (audioChoice != 2)
-                        tree.StopDancing();
+                        tree.StopDancing(currentRock);
                 }
 
                 else
                 {
                     leads.UnMute(audioChoice - 8);
                     if (audioChoice == 8)
-                        tree.ChooseRock(0);
-                    else if (audioChoice != 8)
-                        tree.NoRock();
+                        tree.StartDancing(currentRock);
+                    else
+                        tree.StopDancing(currentRock);
                 }
 
             }
 
 
         }
+    }
+
+    public void SetRock(int rock)
+    {
+        currentRock = rock;
     }
 
     /// <summary>

@@ -7,8 +7,10 @@ public class TreeManager : MonoBehaviour
     int beatCount = 0;
     int count = 0;
 
+    int dance = -1;
+
     string[] rocks = { "Rock1", "Rock2", "Rock3", "Rock4", "Rock5" };
-    string[] settings = { "CorrectDrum", "CorrectMelody", "CorrectEQ", "CorrectReverb", "CorrectChorus" };
+    string[] settings = { "CorrectDrum", "CorrectMelody", "CorrectChorus", "CorrectReverb", "CorrectEQ" };
 
     public enum TreeState
     {
@@ -24,23 +26,27 @@ public class TreeManager : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         state = TreeState.Nothing;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
     }
 
-    public void StartDancing()
+    public void StartDancing(int index)
     {
         //anim.SetBool("CorrectLoop", true);
+        dance = index;
         state = TreeState.Waiting;
     }
 
-    public void StopDancing()
+    public void StopDancing(int index)
     {
         state = TreeState.Nothing;
-        anim.SetBool("CorrectDrum", false);
+        anim.SetBool(settings[index], false);
     }
 
     public void ChooseRock(int index)
     {
         anim.SetBool(rocks[index], true);
+        dance = index;
         if (anim.GetBool(settings[index]))
         {
             anim.SetBool(settings[index], false);
@@ -55,6 +61,11 @@ public class TreeManager : MonoBehaviour
             anim.SetBool(rock, false);
             state = TreeState.Nothing;
         }
+    }
+
+    public bool IsCorrect(int index)
+    {
+        return anim.GetBool(settings[index]);
     }
 
     void FixedUpdate()
@@ -81,7 +92,13 @@ public class TreeManager : MonoBehaviour
 
         if (state == TreeState.Waiting && count == 0)
         {
-            anim.SetBool("CorrectDrum", true);
+            //if (dance == 0)
+            //    anim.SetBool("CorrectDrum", true);
+            //if (dance == 1)
+            //    anim.SetBool("CorrectMelody", true);
+            //if (dance == 2)
+            //    anim.SetBool("CorrectChorus", true);
+            anim.SetBool(settings[dance], true);
             state = TreeState.Dancing;
         }
 
