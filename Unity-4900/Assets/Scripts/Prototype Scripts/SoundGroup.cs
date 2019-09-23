@@ -9,6 +9,7 @@ public class SoundGroup : MonoBehaviour
 
     AudioSource[] sources;                  //array of audio sources for all children
 
+
     /// <summary>
     /// Gets audio sources of all children, stores in sources array
     /// </summary>
@@ -81,5 +82,13 @@ public class SoundGroup : MonoBehaviour
         {
             source.outputAudioMixerGroup = group;
         }
+    }
+
+    public void UpdateEffect(float val)
+    {
+        if (val > 1.0f)
+            val = 1.0f;
+        if (val < 0)
+            val = 0;
     }
 }

@@ -12,14 +12,14 @@ public class Tablet : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         //print(TabletNumber + "Enter");
-        tree.ChooseRock(TabletNumber);
+        //tree.ChooseRock(TabletNumber);
         sound.SetRock(TabletNumber);
     }
 
     void OnTriggerExit(Collider other)
     {
         //print(TabletNumber + "Exit");
-        tree.NoRock();
+        //tree.NoRock();
         sound.SetRock(-1);
     }
 }

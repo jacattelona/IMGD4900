@@ -15,7 +15,8 @@ public class TreeManager : MonoBehaviour
     public enum TreeState
     {
         Nothing,
-        Waiting,
+        Increasing,
+        Decreasing,
         Dancing
     }
 
@@ -34,34 +35,34 @@ public class TreeManager : MonoBehaviour
     {
         //anim.SetBool("CorrectLoop", true);
         dance = index;
-        state = TreeState.Waiting;
+        state = TreeState.Increasing;
     }
 
     public void StopDancing(int index)
     {
-        state = TreeState.Nothing;
+        state = TreeState.Decreasing;
         anim.SetBool(settings[index], false);
     }
 
-    public void ChooseRock(int index)
-    {
-        anim.SetBool(rocks[index], true);
-        dance = index;
-        if (anim.GetBool(settings[index]))
-        {
-            anim.SetBool(settings[index], false);
-            state = TreeState.Waiting;
-        }
-    }
+    //public void ChooseRock(int index)
+    //{
+    //    anim.SetBool(rocks[index], true);
+    //    dance = index;
+    //    if (anim.GetBool(settings[index]))
+    //    {
+    //        anim.SetBool(settings[index], false);
+    //        state = TreeState.Waiting;
+    //    }
+    //}
 
-    public void NoRock()
-    {
-        foreach(string rock in rocks)
-        {
-            anim.SetBool(rock, false);
-            state = TreeState.Nothing;
-        }
-    }
+    //public void NoRock()
+    //{
+    //    foreach(string rock in rocks)
+    //    {
+    //        anim.SetBool(rock, false);
+    //        state = TreeState.Nothing;
+    //    }
+    //}
 
     public bool IsCorrect(int index)
     {
@@ -90,7 +91,7 @@ public class TreeManager : MonoBehaviour
             }
         }
 
-        if (state == TreeState.Waiting && count == 0)
+        if (state == TreeState.Increasing && count == 0)
         {
             //if (dance == 0)
             //    anim.SetBool("CorrectDrum", true);
@@ -98,7 +99,16 @@ public class TreeManager : MonoBehaviour
             //    anim.SetBool("CorrectMelody", true);
             //if (dance == 2)
             //    anim.SetBool("CorrectChorus", true);
-            anim.SetBool(settings[dance], true);
+            //anim.SetBool(settings[dance], true);
+            int numCorrect = anim.GetInteger("NumCorrect");
+            anim.SetInteger("NumCorrect", numCorrect + 1);
+            state = TreeState.Dancing;
+        }
+
+        if (state == TreeState.Decreasing && count == 0)
+        {
+            int numCorrect = anim.GetInteger("NumCorrect");
+            anim.SetInteger("NumCorrect", numCorrect - 1);
             state = TreeState.Dancing;
         }
 
