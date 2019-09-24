@@ -1,0 +1,39 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Audio;
+using UnityEnginge.UI;  //allow it to interact with UI
+using UnityEnginge.UIElements;
+using Button1 = UnityEngine.UIElements.Button;
+using Button2 = UnityEngine.UIElements.Button;
+using Button3 = UnityEngine.UIElements.Button;
+
+public class ButtonPushing : MonoBehaviour 
+{
+
+  public AudioSource sound;
+  private Rect audiorect;
+  
+  public void startAudio()
+  {
+    audiorect = new Rect (20, 20, 100, 20);
+  }
+  
+  public void Update ()
+  {
+  }
+  
+  public void on GUI()
+  {
+    GUI.Label(audiodirect, "Choice One");
+    
+    if(audiodirect.Contains(Event.current.mousePosition))
+    {
+      if(Input.GetMouseButtonDown(0))
+      {
+        sound.unMute(sound);
+      }
+    }
+    
+  }
+}
