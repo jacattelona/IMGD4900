@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
-using UnityEnginge.UI;
-using UnityEnginge.UIElements;
-using Button1 = UnityEngine.UIElements.Button;
-using Button2 = UnityEngine.UIElements.Button;
-using Button3 = UnityEngine.UIElements.Button;
+using UnityEngine.Audio;    //allows us to mess with Unity audio
+using UnityEnginge.UI;  //allows us to interact with UI
+using UnityEnginge.UIElements;  //allows us to interact with the UI objects
+using Button1 = UnityEngine.UIElements.Button;  //Button 1 (each rock has 3 buttons)
+using Button2 = UnityEngine.UIElements.Button;  //Button 2
+using Button3 = UnityEngine.UIElements.Button;  // Button 3
 
 public class SoundManager : MonoBehaviour
 {
@@ -22,6 +22,7 @@ public class SoundManager : MonoBehaviour
     int currentRock = -1;
     float chorusVal = 0;
     
+    // The following bools will be used for the sequence of appearance
     bool drumbuttoncorrect = false; // if the correct drum loop is chosen, change to true
     bool pianobuttoncorrect = false;    // if the correct paino loop is chosen change to true
     bool guitarbuttoncorrect = false;   //if the correct guitar loop is chosen change to true
@@ -29,9 +30,9 @@ public class SoundManager : MonoBehaviour
     bool pianoslidercorrect = false;    // if the correct level of effect is chosen, change to true
     bool guitarslidercorrect = false;   // if the correct level of effect is chosen, change to true
     
-    public string Button1 { get; private set; }
-    public string Button1 { get; private set; }
-    public string Button1 { get; private set; }
+   // public string Button1 { get; private set; }
+   // public string Button1 { get; private set; }
+   // public string Button1 { get; private set; }
 
     void Update()
     {
@@ -128,24 +129,29 @@ public class SoundManager : MonoBehaviour
         //            rhythm.UnMute(0);
         //    }
         //}
+        
+        
+        // THIS IS PART OF WHERE THE ISSUES ARE!!!!
+        // IF THIS ISN'T THE PROBLEM THEN THE PROBLEM IS IN THE SCENE UI COMPONENT FUNCTION
+        //since all of the rocks have their own buttons and they are all named Button1 Button2 and Button3 the audio trakc will be chosen based off of what rock you are at
         if (currentRock >= 0)
         {
-            if (Input.GetButtonDown(Button1))   //if you press 1st button, you get the first audio choice
+            if (Input.GetButtonDown(Button1))   //if you press 1st button on a rock, you get the first audio choice
                 audioChoice = 1;
-            if (Input.GetButtonDown(Button2))   //if you press 2nd button you get the second audio choice
+            if (Input.GetButtonDown(Button2))   //if you press 2nd button on a rock, you get the second audio choice
                 audioChoice = 2;
-            if (Input.GetButtonDown(Button3))   // if you press 3rd button, you get the third audio choice
+            if (Input.GetButtonDown(Button3))   // if you press 3rd button on a rock, you get the third audio choice
                 audioChoice = 3;
 
             if (audioChoice != 0)
             {
-                if (!drums.GetPlaying() && audioChoice <= 4)
+                if (!drums.GetPlaying() && audioChoice <= 4)    //If this is the beginning of the choices, start all of the tracks
                 {
                     drums.StartAll();
                     leads.StartAll();
                     rhythm.StartAll();
 
-                    drums.UnMute(audioChoice - 1);
+                    drums.UnMute(audioChoice - 1);  //This plays the audio
                 }
 
                 else if (drums.GetPlaying())
