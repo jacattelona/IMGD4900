@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEnginge.UI;
+using UnityEnginge.UIElements;
+using Button1 = UnityEngine.UIElements.Button;
+using Button2 = UnityEngine.UIElements.Button;
+using Button3 = UnityEngine.UIElements.Button;
 
 public class SoundManager : MonoBehaviour
 {
@@ -16,10 +21,64 @@ public class SoundManager : MonoBehaviour
 
     int currentRock = -1;
     float chorusVal = 0;
+    
+    bool drumbuttoncorrect = false; // if the correct drum loop is chosen, change to true
+    bool pianobuttoncorrect = false;    // if the correct paino loop is chosen change to true
+    bool guitarbuttoncorrect = false;   //if the correct guitar loop is chosen change to true
+    bool drumslidercorrect = false;     // if the correct level of effect is chosen, change to true
+    bool pianoslidercorrect = false;    // if the correct level of effect is chosen, change to true
+    bool guitarslidercorrect = false;   // if the correct level of effect is chosen, change to true
+    
+    public string Button1 { get; private set; }
+    public string Button1 { get; private set; }
+    public string Button1 { get; private set; }
 
     void Update()
     {
         int audioChoice = 0;
+        
+         //summary
+        // if the drum track was the correct choice, show the next rock UI
+        if (drumbuttoncorrect)
+        {
+            //show pianobutton
+        }
+
+        //summary
+        // if the piano track was correctly chosen, show the guitar UI
+        if (pianobuttoncorrect)
+        {
+            // show guitar button
+        }
+
+        //summary
+        // if the guitar button was chosen correctly, show the drum slider
+        if (guitarbuttoncorrect)
+        {
+            //show drumslider
+        }
+
+        //summary
+        // if the drum slider was chosen correctly show the piano slider
+        if (drumslidercorrect)
+        {
+            //show piano slider
+        }
+
+        //summary
+        // if the piano slider was correct show the guitar slider
+        if (pianoslidercorrect)
+        {
+            // show guitar slider
+        }
+
+        //summary
+        //if the guitar slider was chosen correctly show the final button
+        if (guitarslidercorrect)
+        {
+            //show final button
+        }
+        
         //if (currentRock == 0)
         //{
         //    if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -71,11 +130,11 @@ public class SoundManager : MonoBehaviour
         //}
         if (currentRock >= 0)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
+            if (Input.GetButtonDown(Button1))   //if you press 1st button, you get the first audio choice
                 audioChoice = 1;
-            if (Input.GetKeyDown(KeyCode.Alpha2))
+            if (Input.GetButtonDown(Button2))   //if you press 2nd button you get the second audio choice
                 audioChoice = 2;
-            if (Input.GetKeyDown(KeyCode.Alpha3))
+            if (Input.GetButtonDown(Button3))   // if you press 3rd button, you get the third audio choice
                 audioChoice = 3;
 
             if (audioChoice != 0)
