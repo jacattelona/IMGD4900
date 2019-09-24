@@ -136,11 +136,11 @@ public class SoundManager : MonoBehaviour
         //since all of the rocks have their own buttons and they are all named Button1 Button2 and Button3 the audio trakc will be chosen based off of what rock you are at
         if (currentRock >= 0)
         {
-            if (Input.GetButtonDown(Button1))   //if you press 1st button on a rock, you get the first audio choice
+            if (Input.GetButtonDown("Button1"))   //if you press 1st button on a rock, you get the first audio choice
                 audioChoice = 1;
-            if (Input.GetButtonDown(Button2))   //if you press 2nd button on a rock, you get the second audio choice
+            if (Input.GetButtonDown("Button2"))   //if you press 2nd button on a rock, you get the second audio choice
                 audioChoice = 2;
-            if (Input.GetButtonDown(Button3))   // if you press 3rd button on a rock, you get the third audio choice
+            if (Input.GetButtonDown("Button3"))   // if you press 3rd button on a rock, you get the third audio choice
                 audioChoice = 3;
 
             if (audioChoice != 0)
