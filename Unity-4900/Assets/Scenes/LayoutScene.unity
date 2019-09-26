@@ -221,7 +221,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 44169138}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1042938538}
+        m_MethodName: UnMute
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &44169138
@@ -961,7 +972,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &148530578
 PrefabInstance:
@@ -1118,7 +1129,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 174493082}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2087762014}
+        m_MethodName: UnMute
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &174493082
@@ -6736,7 +6758,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1001 &434831954
 PrefabInstance:
@@ -6812,6 +6834,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 89db7e36c4b376a4e91a7a8cc29b6015, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf47d04d2a79e5d4ea9f6c6c6a07f40e, type: 3}
+--- !u!4 &434831955 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: cf47d04d2a79e5d4ea9f6c6c6a07f40e,
+    type: 3}
+  m_PrefabInstance: {fileID: 434831954}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &453944672
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7081,7 +7109,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 479780717}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2087762014}
+        m_MethodName: UnMute
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &479780717
@@ -12772,7 +12811,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: -68.658005, y: -79.41801, z: 78.756004}
 --- !u!1 &854276782
 GameObject:
@@ -12855,7 +12894,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 854276785}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1605980976}
+        m_MethodName: UnMute
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &854276785
@@ -12917,9 +12967,10 @@ MonoBehaviour:
   TabletNumber: 1
   tree: {fileID: 61361293}
   sound: {fileID: 1290624392}
-  standLocation: {x: 0, y: 0, z: 0}
-  lookAngle: {x: 0, y: 0, z: 0}
   f: {fileID: 1089061661}
+  camLoc: {x: 0, y: 0, z: 0}
+  camX: 0
+  camY: 0
 --- !u!65 &863952286
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13461,7 +13512,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 990039507}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1605980976}
+        m_MethodName: UnMute
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &990039507
@@ -13583,7 +13645,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1023325601}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1042938538}
+        m_MethodName: UnMute
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1023325601
@@ -15512,17 +15585,17 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 904759811}
-  - {fileID: 1149446971}
-  - {fileID: 1173035864}
-  - {fileID: 815839135}
-  - {fileID: 2103589290}
+  - {fileID: 434831955}
+  - {fileID: 1695337503}
+  - {fileID: 1499310503}
+  - {fileID: 2007073138}
   - {fileID: 762645523}
   - {fileID: 1521492939}
   - {fileID: 1548250024}
-  - {fileID: 954938000}
+  - {fileID: 2035809838}
   - {fileID: 112077662}
   - {fileID: 914242104}
-  - {fileID: 1198502743}
+  - {fileID: 1925978574}
   - {fileID: 602952315}
   m_Father: {fileID: 0}
   m_RootOrder: 10
@@ -15938,6 +16011,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 89db7e36c4b376a4e91a7a8cc29b6015, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf47d04d2a79e5d4ea9f6c6c6a07f40e, type: 3}
+--- !u!4 &1499310503 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: cf47d04d2a79e5d4ea9f6c6c6a07f40e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1499310502}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1504067875
 GameObject:
   m_ObjectHideFlags: 0
@@ -16195,10 +16274,21 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2087762014}
+        m_MethodName: UpdateEffect
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!4 &1548250024 stripped
@@ -16840,6 +16930,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 89db7e36c4b376a4e91a7a8cc29b6015, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf47d04d2a79e5d4ea9f6c6c6a07f40e, type: 3}
+--- !u!4 &1695337503 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: cf47d04d2a79e5d4ea9f6c6c6a07f40e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1695337502}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1711170889
 GameObject:
   m_ObjectHideFlags: 0
@@ -17466,6 +17562,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: drum_rock_01
       objectReference: {fileID: 0}
+    - target: {fileID: -6434590018773005939, guid: e981bbf91327b3a46a62cdc45d2bbee3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3b4aab79de3eaa844aeecfbcaab64487, type: 2}
     - target: {fileID: -4216859302048453862, guid: e981bbf91327b3a46a62cdc45d2bbee3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17521,11 +17622,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -12.069
       objectReference: {fileID: 0}
-    - target: {fileID: -6434590018773005939, guid: e981bbf91327b3a46a62cdc45d2bbee3,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 3b4aab79de3eaa844aeecfbcaab64487, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e981bbf91327b3a46a62cdc45d2bbee3, type: 3}
 --- !u!1 &1846349442
@@ -17609,7 +17705,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1846349445}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1042938538}
+        m_MethodName: UnMute
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1846349445
@@ -18060,6 +18167,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: bfdce740380df2d4bbf5265b9d690a64, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d60767fa523ca524db2764c62f00d693, type: 3}
+--- !u!4 &1925978574 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: d60767fa523ca524db2764c62f00d693,
+    type: 3}
+  m_PrefabInstance: {fileID: 1925978573}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1969722029
 GameObject:
   m_ObjectHideFlags: 0
@@ -18312,7 +18425,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2002506637}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2087762014}
+        m_MethodName: UnMute
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2002506637
@@ -18427,6 +18551,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 89db7e36c4b376a4e91a7a8cc29b6015, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf47d04d2a79e5d4ea9f6c6c6a07f40e, type: 3}
+--- !u!4 &2007073138 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: cf47d04d2a79e5d4ea9f6c6c6a07f40e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2007073137}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2020135834
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18735,6 +18865,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 89db7e36c4b376a4e91a7a8cc29b6015, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf47d04d2a79e5d4ea9f6c6c6a07f40e, type: 3}
+--- !u!4 &2035809838 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: cf47d04d2a79e5d4ea9f6c6c6a07f40e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2035809837}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2038731746
 GameObject:
   m_ObjectHideFlags: 0
@@ -23734,7 +23870,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &2127707880
 GameObject:
@@ -23929,13 +24065,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1290624392}
-        m_MethodName: ButtonClick2
+      - m_Target: {fileID: 1605980976}
+        m_MethodName: UnMute
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
