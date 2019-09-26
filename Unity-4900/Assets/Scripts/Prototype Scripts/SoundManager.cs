@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEnginge.UI;
-using UnityEnginge.UIElements;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 using Button1 = UnityEngine.UIElements.Button;
 using Button2 = UnityEngine.UIElements.Button;
 using Button3 = UnityEngine.UIElements.Button;
@@ -30,8 +31,28 @@ public class SoundManager : MonoBehaviour
     bool guitarslidercorrect = false;   // if the correct level of effect is chosen, change to true
     
     public string Button1 { get; private set; }
-    public string Button1 { get; private set; }
-    public string Button1 { get; private set; }
+    public string Button2 { get; private set; }
+    public string Button3 { get; private set; }
+
+    void Start()
+    {
+        drums.StartAll();
+        leads.StartAll();
+        rhythm.StartAll();
+        float f = Random.Range(0, 2f);
+        if (f > 1.0f)
+        {
+            drums.SetCorrect(2);
+            leads.SetCorrect(0);
+            rhythm.SetCorrect(1);
+        }
+        else
+        {
+            drums.SetCorrect(1);
+            leads.SetCorrect(1);
+            rhythm.SetCorrect(2);
+        }
+    }
 
     void Update()
     {
@@ -130,29 +151,43 @@ public class SoundManager : MonoBehaviour
         //}
         if (currentRock >= 0)
         {
-            if (Input.GetButtonDown(Button1))   //if you press 1st button, you get the first audio choice
+            if (Input.GetKeyDown(KeyCode.Alpha1))   //if you press 1st button, you get the first audio choice
+            {
                 audioChoice = 1;
-            if (Input.GetButtonDown(Button2))   //if you press 2nd button you get the second audio choice
+                //print("Button 1");
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2))   //if you press 2nd button you get the second audio choice
+            {
                 audioChoice = 2;
-            if (Input.GetButtonDown(Button3))   // if you press 3rd button, you get the third audio choice
+               // print("Button 2");
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha3))   // if you press 3rd button, you get the third audio choice
+            {
                 audioChoice = 3;
+               // print("Button 3");
+            }
 
             if (audioChoice != 0)
             {
-                if (!drums.GetPlaying() && audioChoice <= 4)
-                {
-                    drums.StartAll();
-                    leads.StartAll();
-                    rhythm.StartAll();
+                //if (!drums.GetPlaying() && audioChoice <= 4)
+                //{
+                //    drums.StartAll();
+                //    leads.StartAll();
+                //    rhythm.StartAll();
 
-                    drums.UnMute(audioChoice - 1);
-                }
+                //    drums.UnMute(audioChoice - 1);
+                //}
 
-                else if (drums.GetPlaying())
+                if (drums.GetPlaying())
                 {
                     currentGroup.UnMute(audioChoice - 1);
                 }
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape)){
+            SceneManager.LoadScene("LayoutScene");
         }
     }
 

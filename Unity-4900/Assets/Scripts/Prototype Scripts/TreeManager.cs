@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class TreeManager : MonoBehaviour
 {
+    public Texture emission;
+    public GameObject tree;
+    public GameObject altar;
+    //Material mat;
+
     int beatCount = 0;
     int count = 0;
 
@@ -29,6 +34,7 @@ public class TreeManager : MonoBehaviour
         state = TreeState.Nothing;
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
+        //mat = tree.GetComponent<Renderer>().material;
     }
 
     public void StartDancing(int index)
@@ -41,7 +47,7 @@ public class TreeManager : MonoBehaviour
     public void StopDancing(int index)
     {
         state = TreeState.Decreasing;
-        anim.SetBool(settings[index], false);
+        //anim.SetBool(settings[index], false);
     }
 
     //public void ChooseRock(int index)
@@ -103,6 +109,11 @@ public class TreeManager : MonoBehaviour
             int numCorrect = anim.GetInteger("NumCorrect");
             anim.SetInteger("NumCorrect", numCorrect + 1);
             state = TreeState.Dancing;
+            if (numCorrect+1 == 3)
+            {
+                tree.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+                altar.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+            }
         }
 
         if (state == TreeState.Decreasing && count == 0)

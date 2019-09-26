@@ -9,7 +9,10 @@ public class SoundGroup : MonoBehaviour
 
     AudioSource[] sources;                  //array of audio sources for all children
 
+    public TreeManager tree;
+    public int correct = 1;
 
+    
     /// <summary>
     /// Gets audio sources of all children, stores in sources array
     /// </summary>
@@ -69,6 +72,15 @@ public class SoundGroup : MonoBehaviour
         }
         //UnMute the indicated source
         sources[index].mute = false;
+        if (index == correct)
+        {
+            tree.StartDancing(0);
+        }
+    }
+
+    public void SetCorrect(int index)
+    {
+        correct = index;
     }
 
     /// <summary>
