@@ -27,9 +27,15 @@ public class TreeManager : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         state = TreeState.Nothing;
-        Cursor.lockState = CursorLockMode.Confined;
-        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        //Cursor.lockState = CursorLockMode.Confined;
+        //Cursor.visible = true;
+
     }
+
+    
 
     public void StartDancing(int index)
     {

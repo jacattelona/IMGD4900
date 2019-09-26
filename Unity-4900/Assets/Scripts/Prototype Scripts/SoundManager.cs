@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;    //allows us to mess with Unity audio
-using UnityEnginge.UI;  //allows us to interact with UI
-using UnityEnginge.UIElements;  //allows us to interact with the UI objects
+using UnityEngine.UI;  //allows us to interact with UI
+using UnityEngine.UIElements;  //allows us to interact with the UI objects
 using Button1 = UnityEngine.UIElements.Button;  //Button 1 (each rock has 3 buttons)
 using Button2 = UnityEngine.UIElements.Button;  //Button 2
 using Button3 = UnityEngine.UIElements.Button;  // Button 3
@@ -197,5 +197,16 @@ public class SoundManager : MonoBehaviour
         if (val > 1.0f) val = 1.0f;
         if (val < 0) val = 0;
         mixer.SetFloat("RoomLevel", (val * 2500f) - 3000f);
+    }
+
+
+    public void ButtonClick()
+    {
+        print("Pressed the no parameter button");
+    }
+
+    public void ButtonClick2(int index)
+    {
+        print("Pressed rock " + index);
     }
 }

@@ -42,6 +42,28 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
 
+        //***********ADDED STUFF***************
+
+        enum Rotation
+        {
+            None,
+            Tablet,
+            Return
+        }
+        private Rotation rotating = Rotation.None;
+
+        private bool cameraLocked = false;
+
+        private Vector3 tabletPos;
+        private float tabletY = 0;
+        private float tabletX = 0;
+
+        private Vector3 oldPos;
+        private float oldY = 0;
+        private float oldX = 0;
+
+        private int rotateCount = 0;
+
         // Use this for initialization
         private void Start()
         {
@@ -61,7 +83,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
-            RotateView();
+            if (!cameraLocked)
+                RotateView();
+
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
             {
@@ -81,6 +105,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
+
         }
 
 
@@ -94,8 +119,43 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void FixedUpdate()
         {
-            float speed;
-            GetInput(out speed);
+            float speed = 0f;
+            if (!cameraLocked)
+                GetInput(out speed);
+
+            if (rotating == Rotation.Tablet)
+            {
+                m_Camera.transform.position = Vector3.Slerp(m_Camera.transform.position, tabletPos, .1f);
+                Quaternion camTarget = Quaternion.Euler(tabletX, tabletY, 0);
+                m_Camera.transform.rotation = Quaternion.Slerp(m_Camera.transform.rotation, camTarget, .1f);
+
+                rotateCount++;
+                print(rotateCount);
+                if (rotateCount == 50)
+                {
+                    rotating = Rotation.None;
+                    print("Done Rotating To");
+                    rotateCount = 0;
+                }
+            }
+
+            else if (rotating == Rotation.Return)
+            {
+                m_Camera.transform.position = Vector3.Slerp(m_Camera.transform.position, oldPos, .2f);
+                Quaternion camTarget = Quaternion.Euler(oldX, oldY, 0);
+                m_Camera.transform.rotation = Quaternion.Slerp(m_Camera.transform.rotation, camTarget, .2f);
+
+                rotateCount++;
+                print(rotateCount);
+                if (rotateCount == 20)
+                {
+                    rotating = Rotation.None;
+                    cameraLocked = false;
+                    print("Done Rotating Away");
+                    rotateCount = 0;
+                }
+            }
+
             // always move along the camera forward as it is the direction that it being aimed at
             Vector3 desiredMove = transform.forward*m_Input.y + transform.right*m_Input.x;
 
@@ -130,7 +190,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             ProgressStepCycle(speed);
             UpdateCameraPosition(speed);
 
-            m_MouseLook.UpdateCursorLock();
+            //m_MouseLook.UpdateCursorLock();
         }
 
 
@@ -156,7 +216,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             m_NextStep = m_StepCycle + m_StepInterval;
 
-            PlayFootStepAudio();
+            //PlayFootStepAudio();
         }
 
 
@@ -255,5 +315,35 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             body.AddForceAtPosition(m_CharacterController.velocity*0.1f, hit.point, ForceMode.Impulse);
         }
+
+        public void LockCam(Vector3 location, float y, float x)
+        {
+            if (!cameraLocked)
+            {
+                cameraLocked = true;
+                rotateCount = 0;
+                rotating = Rotation.Tablet;
+
+                tabletPos = location;
+                tabletX = x;
+                tabletY = y;
+
+                oldPos = transform.position;
+                oldX = m_Camera.transform.rotation.eulerAngles.x;
+                oldY = m_Camera.transform.rotation.eulerAngles.y;
+
+            }
+        }
+
+        public void UnlockCam()
+        {
+            if (cameraLocked && rotating != Rotation.Return)
+            {
+                rotateCount = 0;
+                rotating = Rotation.Return;
+            }
+        }
     }
+
+
 }
