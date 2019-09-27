@@ -10,10 +10,10 @@ public class Tablet : MonoBehaviour
 
     bool inRock = false;
 
-    public UnityStandardAssets.Characters.FirstPerson.FirstPersonController f;
-    public Vector3 camLoc;
-    public float camX;
-    public float camY;
+    public UnityStandardAssets.Characters.FirstPerson.FirstPersonController character;
+    public Vector3 camLocation;
+    public float angleX;
+    public float angleY;
     
     // Start is called before the first frame update
 
@@ -38,14 +38,14 @@ public class Tablet : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && inRock)
         {
             print("Clicked in rock " + TabletNumber);
-            f.LockCam(camLoc, camY, camX);
+            character.LockCam(camLocation, angleY, angleX);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
         else if (Input.GetMouseButtonDown(1) && inRock)
         {
             print("Right Clicked in rock " + TabletNumber);
-            f.UnlockCam();
+            character.UnlockCam();
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
