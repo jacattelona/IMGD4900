@@ -38,7 +38,7 @@ public class Tablet : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && inRock)
         {
             print("Clicked in rock " + TabletNumber);
-            f.LockCam(new Vector3(-7.35f, 2.127f, -5.117f), camY, camX);
+            f.LockCam(camLoc, camY, camX);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
