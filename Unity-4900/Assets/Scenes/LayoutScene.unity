@@ -7635,11 +7635,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f27074c8275a92d49b2c6d98fbc632ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TabletNumber: -1
-  tree: {fileID: 0}
-  sound: {fileID: 0}
-  character: {fileID: 0}
-  camLocation: {x: 0, y: 0, z: 0}
+  TabletNumber: 1
+  tree: {fileID: 61361293}
+  sound: {fileID: 1290624392}
+  character: {fileID: 1089061661}
+  camLocation: {x: -1.2, y: 1.7, z: -10.6}
   angleX: 0
   angleY: 0
 --- !u!65 &648556222
@@ -12848,25 +12848,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1107328478}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &863952285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 863952284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f27074c8275a92d49b2c6d98fbc632ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TabletNumber: 1
-  tree: {fileID: 61361293}
-  sound: {fileID: 1290624392}
-  character: {fileID: 0}
-  camLocation: {x: 0, y: 0, z: 0}
-  angleX: 0
-  angleY: 0
 --- !u!65 &863952286
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12880,6 +12861,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 0.58}
   m_Center: {x: 0, y: 0.39, z: 0}
+--- !u!114 &863952287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863952284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16e12b597f31f22498b85f30b9b33413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TabletNumber: -1
+  tree: {fileID: 61361293}
+  sound: {fileID: 1290624392}
+  character: {fileID: 1089061661}
+  camLocation: {x: -0.45, y: 2.5, z: 6.6}
+  angleX: -10
+  angleY: 175
 --- !u!1 &887754872
 GameObject:
   m_ObjectHideFlags: 0
@@ -13254,11 +13254,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f27074c8275a92d49b2c6d98fbc632ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TabletNumber: -1
+  TabletNumber: 1
   tree: {fileID: 61361293}
   sound: {fileID: 1290624392}
-  character: {fileID: 0}
-  camLocation: {x: -9, y: 1.8, z: 1}
+  character: {fileID: 1089061661}
+  camLocation: {x: -10, y: 1.8, z: 1}
   angleX: -7
   angleY: 90
 --- !u!65 &964693498
@@ -14195,37 +14195,37 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 0e2d271affd68374aab87b415e6dd92e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.427433
+      value: 3.12
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0e2d271affd68374aab87b415e6dd92e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.93415713
+      value: -0.71
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0e2d271affd68374aab87b415e6dd92e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.91852903
+      value: 7.23
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0e2d271affd68374aab87b415e6dd92e,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.15462539
+      value: 0.4240209
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0e2d271affd68374aab87b415e6dd92e,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.18784352
+      value: 0.5151107
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0e2d271affd68374aab87b415e6dd92e,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.6164408
+      value: 0.4734096
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0e2d271affd68374aab87b415e6dd92e,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.74887025
+      value: 0.57510924
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0e2d271affd68374aab87b415e6dd92e,
         type: 3}
@@ -14240,7 +14240,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 0e2d271affd68374aab87b415e6dd92e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -28.163002
+      value: 83.7
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0e2d271affd68374aab87b415e6dd92e,
         type: 3}
@@ -16032,7 +16032,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2087762014}
         m_MethodName: UpdateEffect
-        m_Mode: 4
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

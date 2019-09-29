@@ -19,7 +19,7 @@ public class Tablet : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        //print(TabletNumber + "Enter");
+        print(TabletNumber + "Enter");
         //tree.ChooseRock(TabletNumber);
         //sound.SetRock(TabletNumber);
         inRock = true;
@@ -33,7 +33,7 @@ public class Tablet : MonoBehaviour
         inRock = false;
     }
 
-    void Update()
+    protected void Update()
     {
         if (Input.GetMouseButtonDown(0) && inRock)
         {

@@ -130,11 +130,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 m_Camera.transform.rotation = Quaternion.Slerp(m_Camera.transform.rotation, camTarget, .1f);
 
                 rotateCount++;
-                print(rotateCount);
+                //print(rotateCount);
                 if (rotateCount == 50)
                 {
                     rotating = Rotation.None;
-                    print("Done Rotating To");
+                    //print("Done Rotating To");
                     rotateCount = 0;
                 }
             }
@@ -146,12 +146,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 m_Camera.transform.rotation = Quaternion.Slerp(m_Camera.transform.rotation, camTarget, .2f);
 
                 rotateCount++;
-                print(rotateCount);
+                //print(rotateCount);
                 if (rotateCount == 20)
                 {
                     rotating = Rotation.None;
                     cameraLocked = false;
-                    print("Done Rotating Away");
+                    //print("Done Rotating Away");
                     rotateCount = 0;
                 }
             }
