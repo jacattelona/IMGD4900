@@ -34,6 +34,13 @@ public class SoundManager : MonoBehaviour
    // public string Button1 { get; private set; }
    // public string Button1 { get; private set; }
 
+    void Start()
+    {
+        drums.StartAll();
+        leads.StartAll();
+        rhythm.StartAll();
+    }
+
     void Update()
     {
         int audioChoice = 0;
@@ -80,57 +87,7 @@ public class SoundManager : MonoBehaviour
             //show final button
         }
         
-        //if (currentRock == 0)
-        //{
-        //    if (Input.GetKeyDown(KeyCode.Alpha1))
-        //        audioChoice = 1;
-        //    if (Input.GetKeyDown(KeyCode.Alpha2))
-        //        audioChoice = 2;
-        //    if (Input.GetKeyDown(KeyCode.Alpha3))
-        //        audioChoice = 3;
-        //}
-
-        //if (currentRock == 1 && tree.IsCorrect(0))
-        //{
-        //    if (Input.GetKeyDown(KeyCode.Alpha1))
-        //        audioChoice = 8;
-        //    if (Input.GetKeyDown(KeyCode.Alpha2))
-        //        audioChoice = 9;
-        //}
-
-        //if (currentRock == 2 && tree.IsCorrect(1))
-        //{
-        //    bool temp = false;
-        //    if (Input.GetKey(KeyCode.Alpha1))
-        //    {
-        //        chorusVal -= (Time.deltaTime * .2f);
-        //        temp = true;
-        //    }
-        //    if (Input.GetKey(KeyCode.Alpha2))
-        //    {
-        //        chorusVal += (Time.deltaTime * .2f);
-        //        temp = true;
-        //    }
-
-        //    if (chorusVal > 1.0f)
-        //        chorusVal = 1.0f;
-        //    if (chorusVal < 0)
-        //        chorusVal = 0;
-        //    //print(chorusVal);
-        //    if (temp)
-        //    {
-        //        SetChorus(chorusVal);
-        //        if (chorusVal > .5f && chorusVal < .7f)
-        //            tree.StartDancing(currentRock);
-        //        else
-        //            tree.StopDancing(currentRock);
-
-        //        if (tree.IsCorrect(0) && tree.IsCorrect(1) && tree.IsCorrect(2))
-        //            rhythm.UnMute(0);
-        //    }
-        //}
-        
-        
+       
         // THIS IS PART OF WHERE THE ISSUES ARE!!!!
         // IF THIS ISN'T THE PROBLEM THEN THE PROBLEM IS IN THE SCENE UI COMPONENT FUNCTION
         //since all of the rocks have their own buttons and they are all named Button1 Button2 and Button3 the audio trakc will be chosen based off of what rock you are at
@@ -175,29 +132,6 @@ public class SoundManager : MonoBehaviour
             currentGroup = leads;
     }
 
-    /// <summary>
-    /// Sets the chorus depth of this sound group
-    /// </summary>
-    /// <param name="val"> value between 0 and 1 </param>
-    public void SetChorus(float val)
-    {
-        if (val > 1.0f) val = 1.0f;
-        if (val < 0f) val = 0;
-        //chorus.depth = val / 2f;
-        mixer.SetFloat("DepthLevel", val / 2f);
-    }
-
-
-    /// <summary>
-    /// Sets the reverb room size for this sound group
-    /// </summary>
-    /// <param name="val"> value between 0 and 1 </param>
-    public void SetReverb(float val)
-    {
-        if (val > 1.0f) val = 1.0f;
-        if (val < 0) val = 0;
-        mixer.SetFloat("RoomLevel", (val * 2500f) - 3000f);
-    }
 
 
     public void ButtonClick()

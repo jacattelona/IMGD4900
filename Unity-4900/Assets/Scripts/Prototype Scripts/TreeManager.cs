@@ -4,21 +4,23 @@ using UnityEngine;
 
 public class TreeManager : MonoBehaviour
 {
+    public GameObject tree;
+    public GameObject altar;
+    public GameObject victoryParticles;
+
     int beatCount = 0;
     int count = 0;
-
-    int dance = -1;
-
-    string[] rocks = { "Rock1", "Rock2", "Rock3", "Rock4", "Rock5" };
-    string[] settings = { "CorrectDrum", "CorrectMelody", "CorrectChorus", "CorrectReverb", "CorrectEQ" };
 
     public enum TreeState
     {
         Nothing,
         Increasing,
         Decreasing,
-        Dancing
+        Dancing,
     }
+
+    bool glowing = false;
+    float glowVal = 0f;
 
     Animator anim;
     TreeState state;
@@ -29,51 +31,42 @@ public class TreeManager : MonoBehaviour
         state = TreeState.Nothing;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        victoryParticles.SetActive(false);
 
-        //Cursor.lockState = CursorLockMode.Confined;
-        //Cursor.visible = true;
+        //tree.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+        tree.GetComponent<Renderer>().material.SetColor("_EmissionColor", new Color(1.0f, 1.0f, 1.0f, 1.0f) * 0.0f);
+        altar.GetComponent<Renderer>().material.SetColor("_EmissionColor", new Color(1.0f, 1.0f, 1.0f, 1.0f) * 0.0f);
+        //tree.GetComponent<Renderer>().material.SetColor("_EMISSION", new Color(0.0f, 0.0f, 0.0f, 1.0f));
+        //altar.GetComponent<Renderer>().material.SetColor("_EMISSION", new Color(0.0f, 0.0f, 0.0f, 1.0f));
 
     }
-
     
 
-    public void StartDancing(int index)
+    public void StartDancing()
     {
-        //anim.SetBool("CorrectLoop", true);
-        dance = index;
-        state = TreeState.Increasing;
+        if (state == TreeState.Decreasing)
+        {
+            state = TreeState.Nothing;
+        }
+        else
+        {
+            state = TreeState.Increasing;
+        }
+
     }
 
-    public void StopDancing(int index)
+    public void StopDancing()
     {
-        state = TreeState.Decreasing;
-        anim.SetBool(settings[index], false);
+        if (state == TreeState.Increasing)
+        {
+            state = TreeState.Nothing;
+        }
+        else
+        {
+            state = TreeState.Decreasing;
+        }
     }
 
-    //public void ChooseRock(int index)
-    //{
-    //    anim.SetBool(rocks[index], true);
-    //    dance = index;
-    //    if (anim.GetBool(settings[index]))
-    //    {
-    //        anim.SetBool(settings[index], false);
-    //        state = TreeState.Waiting;
-    //    }
-    //}
-
-    //public void NoRock()
-    //{
-    //    foreach(string rock in rocks)
-    //    {
-    //        anim.SetBool(rock, false);
-    //        state = TreeState.Nothing;
-    //    }
-    //}
-
-    public bool IsCorrect(int index)
-    {
-        return anim.GetBool(settings[index]);
-    }
 
     void FixedUpdate()
     {
@@ -99,27 +92,60 @@ public class TreeManager : MonoBehaviour
 
         if (state == TreeState.Increasing && count == 0)
         {
-            //if (dance == 0)
-            //    anim.SetBool("CorrectDrum", true);
-            //if (dance == 1)
-            //    anim.SetBool("CorrectMelody", true);
-            //if (dance == 2)
-            //    anim.SetBool("CorrectChorus", true);
-            //anim.SetBool(settings[dance], true);
             int numCorrect = anim.GetInteger("NumCorrect");
             anim.SetInteger("NumCorrect", numCorrect + 1);
             state = TreeState.Dancing;
+
+            if (numCorrect+1 == 3)
+            {
+                //GameObject rock = GameObject.Find("Final_Rock");
+                //rock.GetComponent<FinalRock>().Activate();
+                GameObject.Find("piano_rock_01").GetComponent<Tablet>().ActivateSlider();
+                GameObject.Find("guitar_rock_01").GetComponent<Tablet>().ActivateSlider();
+                GameObject.Find("drum_rock_01").GetComponent<Tablet>().ActivateSlider();
+            }
         }
 
         if (state == TreeState.Decreasing && count == 0)
         {
             int numCorrect = anim.GetInteger("NumCorrect");
-            anim.SetInteger("NumCorrect", numCorrect - 1);
+            if (numCorrect > 0)
+                anim.SetInteger("NumCorrect", numCorrect - 1);
             state = TreeState.Dancing;
+
+            if (numCorrect - 1 != 3)
+            {
+                //GameObject rock = GameObject.Find("Final_Rock");
+                //rock.GetComponent<FinalRock>().Activate();
+                GameObject.Find("piano_rock_01").GetComponent<Tablet>().DeactivateSlider();
+                GameObject.Find("guitar_rock_01").GetComponent<Tablet>().DeactivateSlider();
+                GameObject.Find("drum_rock_01").GetComponent<Tablet>().DeactivateSlider();
+            }
+        }
+
+        if (glowing)
+        {
+            if (glowVal >= 1.5f)
+            { 
+                glowing = false;
+                return;
+            }
+            glowVal += .01f;
+            tree.GetComponent<Renderer>().material.SetColor("_EmissionColor", new Color(1.0f, 1.0f, 1.0f, 1.0f) * glowVal);
+            altar.GetComponent<Renderer>().material.SetColor("_EmissionColor", new Color(1.0f, 1.0f, 1.0f, 1.0f) * glowVal);
+
+
         }
 
     }
 
-    
+
+    public void Victory()
+    {
+        victoryParticles.SetActive(true);
+        glowing = true;
+    }
+
+
 
 }
