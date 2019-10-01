@@ -42,7 +42,7 @@ public class Tablet : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
-        else if (Input.GetMouseButtonDown(1) && inRock)
+        else if (Input.GetMouseButtonDown(1) || Input.GetKeyDown("escape") && inRock)
         {
             //print("Right Clicked in rock " + TabletNumber);
             character.UnlockCam();

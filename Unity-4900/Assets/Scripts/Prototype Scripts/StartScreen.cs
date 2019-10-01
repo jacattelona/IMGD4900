@@ -15,7 +15,8 @@ public class StartScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !fading)
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown("w") || Input.GetKeyDown("a")
+            || Input.GetKeyDown("s") || Input.GetKeyDown("d") && !fading)
         {
             fading = true;
         }
