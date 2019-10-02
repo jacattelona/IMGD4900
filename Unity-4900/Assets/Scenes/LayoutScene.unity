@@ -508,6 +508,20 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 381602168}
   m_PrefabAsset: {fileID: 0}
+--- !u!64 &61361296
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61361291}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 0}
 --- !u!1 &98176917
 GameObject:
   m_ObjectHideFlags: 0
@@ -6504,6 +6518,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 791696664}
   m_PrefabAsset: {fileID: 0}
+--- !u!64 &251626251
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251626248}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 8542052008673756335, guid: 70bf4a356fe19ee4681c39896e18d378, type: 3}
 --- !u!1 &288332800
 GameObject:
   m_ObjectHideFlags: 0
@@ -18095,6 +18123,26 @@ MonoBehaviour:
   mats2: []
   aboveGround: {x: 3.12, y: -0.71, z: 7.23}
   dirt: {fileID: 2063555363}
+--- !u!1 &885909847 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 5075700006d385140a92c02b68b893f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1120395590}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &885909850
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885909847}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 2599278393693515596, guid: 5075700006d385140a92c02b68b893f8, type: 3}
 --- !u!1 &887754872
 GameObject:
   m_ObjectHideFlags: 0
@@ -23224,7 +23272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 1089061661}
-  camLocation: {x: -10, y: 1.8, z: 1}
+  camLocation: {x: -11, y: 1.8, z: 1.25}
   angleX: -7
   angleY: 90
   mats1:
@@ -23244,8 +23292,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.3130112, y: 4.3, z: 2.66}
-  m_Center: {x: -0.01180594, y: 0.62, z: 1.07}
+  m_Size: {x: 1.78, y: 4.3, z: 3.52}
+  m_Center: {x: -0.01180594, y: 0.62, z: 1.78}
 --- !u!64 &964693499
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -29999,6 +30047,20 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!64 &1350446127
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350446120}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 5302568919011541938, guid: 228482fc375d2474081202bbd8ea5cdb, type: 3}
 --- !u!1 &1356208223
 GameObject:
   m_ObjectHideFlags: 0
@@ -43195,6 +43257,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!1 &2120413678 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 99d7e65ec9a120d48b765171c274fce7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1754598123}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2120413681
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120413678}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -8176984191909879101, guid: 99d7e65ec9a120d48b765171c274fce7, type: 3}
 --- !u!1 &2127707880
 GameObject:
   m_ObjectHideFlags: 0
@@ -43552,6 +43634,7 @@ GameObject:
   - component: {fileID: 246254724}
   - component: {fileID: 4474497363023277447}
   - component: {fileID: 4474497363023277446}
+  - component: {fileID: 4474497363023277448}
   m_Layer: 0
   m_Name: drum_rock_01
   m_TagString: Untagged
@@ -43594,6 +43677,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.75, y: 1.78, z: 1.88}
   m_Center: {x: -1.25, y: -0.67, z: -0.03}
+--- !u!64 &4474497363023277448
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4474497363023277445}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -9010193167645078742, guid: e981bbf91327b3a46a62cdc45d2bbee3, type: 3}
 --- !u!4 &5006512736604900323
 Transform:
   m_ObjectHideFlags: 0
