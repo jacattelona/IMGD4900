@@ -44,7 +44,7 @@ public class FinalRock : Tablet
         }
     }
 
-    void Activate()
+    public void Activate()
     {
         if (state == State.UnderGround)
         {

@@ -350,7 +350,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1605980976}
+      - m_Target: {fileID: 1605980977}
         m_MethodName: UnMute
         m_Mode: 3
         m_Arguments:
@@ -487,7 +487,7 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &61361293
+--- !u!114 &61361294
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -496,11 +496,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 61361291}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36c6a0e9b6971964ba7afae2888e1326, type: 3}
+  m_Script: {fileID: 11500000, guid: c300ca6a92eba3b4ba6d6c5af098c839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tree: {fileID: 209110715}
-  altar: {fileID: 251626248}
+  tree: {fileID: 209110717}
+  altar: {fileID: 251626249}
   victoryParticles: {fileID: 828306135}
 --- !u!4 &61361295 stripped
 Transform:
@@ -1305,7 +1305,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2087762014}
+      - m_Target: {fileID: 2087762015}
         m_MethodName: UnMute
         m_Mode: 3
         m_Arguments:
@@ -1727,7 +1727,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 228482fc375d2474081202bbd8ea5cdb,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 228482fc375d2474081202bbd8ea5cdb,
         type: 3}
@@ -1761,9 +1761,9 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 2b39f15d61c261544a7a637319b8daa6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 228482fc375d2474081202bbd8ea5cdb, type: 3}
---- !u!1 &209110715 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5056001709828146253, guid: 48fc49e0b44ea5d4da69925f4fa1b846,
+--- !u!137 &209110717 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6501397472633041127, guid: 48fc49e0b44ea5d4da69925f4fa1b846,
     type: 3}
   m_PrefabInstance: {fileID: 381602168}
   m_PrefabAsset: {fileID: 0}
@@ -6515,6 +6515,12 @@ ParticleSystemRenderer:
 --- !u!1 &251626248 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 70bf4a356fe19ee4681c39896e18d378,
+    type: 3}
+  m_PrefabInstance: {fileID: 791696664}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &251626249 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -1504981713932161579, guid: 70bf4a356fe19ee4681c39896e18d378,
     type: 3}
   m_PrefabInstance: {fileID: 791696664}
   m_PrefabAsset: {fileID: 0}
@@ -12078,7 +12084,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: f2398d7ebad1731478d3518b3889a51f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f2398d7ebad1731478d3518b3889a51f,
         type: 3}
@@ -12210,7 +12216,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2087762014}
+      - m_Target: {fileID: 2087762015}
         m_MethodName: UnMute
         m_Mode: 3
         m_Arguments:
@@ -12848,6 +12854,7 @@ MonoBehaviour:
   angleY: 0
   mats1: []
   mats2: []
+  tabletNum: 0
 --- !u!65 &648556222
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17997,7 +18004,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1042938538}
+      - m_Target: {fileID: 1042938539}
         m_MethodName: UnMute
         m_Mode: 3
         m_Arguments:
@@ -18121,6 +18128,7 @@ MonoBehaviour:
   angleY: 175
   mats1: []
   mats2: []
+  tabletNum: 4
   aboveGround: {x: 3.12, y: -0.71, z: 7.23}
   dirt: {fileID: 2063555363}
 --- !u!1 &885909847 stripped
@@ -23281,6 +23289,7 @@ MonoBehaviour:
   mats2:
   - {fileID: 2100000, guid: c54d017df51c7814fb913830f5d2e975, type: 2}
   - {fileID: 2100000, guid: 2b39f15d61c261544a7a637319b8daa6, type: 2}
+  tabletNum: 2
 --- !u!65 &964693498
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23482,7 +23491,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1042938538}
+      - m_Target: {fileID: 1042938539}
         m_MethodName: UnMute
         m_Mode: 3
         m_Arguments:
@@ -23652,7 +23661,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1605980976}
+      - m_Target: {fileID: 0}
         m_MethodName: UnMute
         m_Mode: 3
         m_Arguments:
@@ -23803,7 +23812,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1042938537}
-  - component: {fileID: 1042938538}
+  - component: {fileID: 1042938539}
   m_Layer: 0
   m_Name: Rhythm (Piano)
   m_TagString: Untagged
@@ -23826,9 +23835,9 @@ Transform:
   - {fileID: 1461663095}
   - {fileID: 21296255}
   m_Father: {fileID: 1290624393}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1042938538
+--- !u!114 &1042938539
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -23837,13 +23846,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1042938536}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a173b41066b37484e9f6a281bcde4073, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d98f69a68a17b5448654fe6c7dc1c4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tree: {fileID: 61361293}
-  effectNum: 1
-  effectVal: 0.5
+  groupNumber: 1
   mixer: {fileID: 24100000, guid: 1cc35f516f449ff478d64a45f016623f, type: 2}
+  correctTrackEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  incorrectTrackEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1053631698
 GameObject:
   m_ObjectHideFlags: 0
@@ -24924,9 +24941,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1107328479}
+  - {fileID: 1625750720776362265}
   - {fileID: 907537709}
   - {fileID: 1441918711}
-  - {fileID: 1625750720776362265}
   - {fileID: 5006512736604900323}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -25031,7 +25048,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1290624393}
-  - component: {fileID: 1290624392}
+  - component: {fileID: 1290624394}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -25039,23 +25056,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1290624392
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1290624391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1b77185e15c6474e95f536f02918bb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mixer: {fileID: 0}
-  drums: {fileID: 2087762014}
-  leads: {fileID: 1605980976}
-  rhythm: {fileID: 1042938538}
-  tree: {fileID: 61361293}
 --- !u!4 &1290624393
 Transform:
   m_ObjectHideFlags: 0
@@ -25068,11 +25068,31 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2087762013}
-  - {fileID: 1605980975}
   - {fileID: 1042938537}
+  - {fileID: 1605980975}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1290624394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290624391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cb0c90aed10fce499763a78a06b1c69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drum: {fileID: 2087762015}
+  rhythm: {fileID: 1042938539}
+  lead: {fileID: 1605980977}
+  drumTablet: {fileID: 4474497363023277446}
+  pianoTablet: {fileID: 1350446122}
+  guitarTablet: {fileID: 964693497}
+  finalRock: {fileID: 863952287}
+  tree: {fileID: 61361294}
 --- !u!1 &1295869129
 GameObject:
   m_ObjectHideFlags: 0
@@ -25254,7 +25274,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2087762014}
+      - m_Target: {fileID: 2087762015}
         m_MethodName: UpdateEffect
         m_Mode: 0
         m_Arguments:
@@ -25308,6 +25328,7 @@ MonoBehaviour:
   mats2:
   - {fileID: 2100000, guid: 3ef4e5538e9990141a8176dc982df27f, type: 2}
   - {fileID: 2100000, guid: 2b39f15d61c261544a7a637319b8daa6, type: 2}
+  tabletNum: 1
 --- !u!198 &1350446123
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -30599,7 +30620,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1605980976}
+      - m_Target: {fileID: 1605980977}
         m_MethodName: UpdateEffect
         m_Mode: 0
         m_Arguments:
@@ -30609,7 +30630,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &1461663094
@@ -31224,7 +31245,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1042938538}
+      - m_Target: {fileID: 1042938539}
         m_MethodName: UpdateEffect
         m_Mode: 0
         m_Arguments:
@@ -31326,7 +31347,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 61361293}
+      - m_Target: {fileID: 61361294}
         m_MethodName: Victory
         m_Mode: 1
         m_Arguments:
@@ -31621,7 +31642,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1605980975}
-  - component: {fileID: 1605980976}
+  - component: {fileID: 1605980977}
   m_Layer: 0
   m_Name: Leads (Guitar)
   m_TagString: Untagged
@@ -31644,9 +31665,9 @@ Transform:
   - {fileID: 940616701}
   - {fileID: 1766867347}
   m_Father: {fileID: 1290624393}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1605980976
+--- !u!114 &1605980977
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -31655,13 +31676,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1605980974}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a173b41066b37484e9f6a281bcde4073, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d98f69a68a17b5448654fe6c7dc1c4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tree: {fileID: 61361293}
-  effectNum: 2
-  effectVal: 0.8
+  groupNumber: 2
   mixer: {fileID: 24100000, guid: 1cc35f516f449ff478d64a45f016623f, type: 2}
+  correctTrackEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  incorrectTrackEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1624141688
 GameObject:
   m_ObjectHideFlags: 0
@@ -32578,7 +32607,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1605980976}
+      - m_Target: {fileID: 1605980977}
         m_MethodName: UnMute
         m_Mode: 3
         m_Arguments:
@@ -33159,7 +33188,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2087762014}
+      - m_Target: {fileID: 2087762015}
         m_MethodName: UnMute
         m_Mode: 3
         m_Arguments:
@@ -38389,7 +38418,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2087762013}
-  - component: {fileID: 2087762014}
+  - component: {fileID: 2087762015}
   m_Layer: 0
   m_Name: Drums
   m_TagString: Untagged
@@ -38414,7 +38443,7 @@ Transform:
   m_Father: {fileID: 1290624393}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2087762014
+--- !u!114 &2087762015
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -38423,13 +38452,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 2087762012}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a173b41066b37484e9f6a281bcde4073, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d98f69a68a17b5448654fe6c7dc1c4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tree: {fileID: 61361293}
-  effectNum: 0
-  effectVal: 0.7
+  groupNumber: 0
   mixer: {fileID: 24100000, guid: 1cc35f516f449ff478d64a45f016623f, type: 2}
+  correctTrackEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  incorrectTrackEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &2089827987
 GameObject:
   m_ObjectHideFlags: 0
@@ -43471,7 +43508,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1042938538}
+      - m_Target: {fileID: 1042938539}
         m_MethodName: UnMute
         m_Mode: 3
         m_Arguments:
@@ -43579,7 +43616,7 @@ Transform:
   m_Children:
   - {fileID: 98176918}
   m_Father: {fileID: 1196906038}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &2788782017592338804
 MeshRenderer:
@@ -43664,6 +43701,7 @@ MonoBehaviour:
   mats2:
   - {fileID: 2100000, guid: 3b4aab79de3eaa844aeecfbcaab64487, type: 2}
   - {fileID: 2100000, guid: 2b39f15d61c261544a7a637319b8daa6, type: 2}
+  tabletNum: 0
 --- !u!65 &4474497363023277447
 BoxCollider:
   m_ObjectHideFlags: 0
