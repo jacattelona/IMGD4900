@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Tree : MonoBehaviour
 {
-    const float GLOWMAX = 1.5f;
-    const int BEATMAX = 2;
-    const int COUNTMAX = 33;
-    const int MAXCORRECT = 3;
+    const float GLOWMAX = 1.5f;         //constant glow maximum
+    const int BEATMAX = 2;              //constant beat maximum
+    const int COUNTMAX = 33;            //constant count maximum
+    const int MAXCORRECT = 3;           //constant max number of correct tracks
 
     [SerializeField]
     Renderer tree;                      //Renderer for the tree game object
@@ -25,8 +25,7 @@ public class Tree : MonoBehaviour
     {
         Nothing,
         Increasing,
-        Decreasing,
-        Dancing,
+        Decreasing
     }
 
     TreeState state;                    //treestate enum
@@ -39,16 +38,17 @@ public class Tree : MonoBehaviour
     
     /// <summary>
     /// Gets components
-    /// locks and vanishes cursor
     /// deactivates particles and sets renderer emissions to 0
     /// </summary>
     void Start()
     {
+        //Get animator
         anim = GetComponent<Animator>();
-        state = TreeState.Nothing;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
 
+        //Set state to nothing
+        state = TreeState.Nothing;
+
+        //Disable victory particles and set emission glow to 0
         victoryParticles.SetActive(false);
         tree.material.SetColor("_EmissionColor", new Color(1.0f, 1.0f, 1.0f, 1.0f) * glowVal);
         altar.material.SetColor("_EmissionColor", new Color(1.0f, 1.0f, 1.0f, 1.0f) * glowVal);
@@ -170,6 +170,9 @@ public class Tree : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Activate victory particles and set glowing to true
+    /// </summary>
     public void Victory()
     {
         victoryParticles.SetActive(true);

@@ -5,51 +5,53 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    private MusicGroup drum, rhythm, lead;
+    private MusicGroup drum, rhythm, lead;                      //Music groups
     [SerializeField]
-    private Tablet drumTablet, pianoTablet, guitarTablet;
+    private Tablet drumTablet, pianoTablet, guitarTablet;       //Music tablets
     [SerializeField]
-    private FinalRock finalRock;
+    private FinalRock finalRock;                                //final tablet
     [SerializeField]
-    private Tree tree;
+    private Tree tree;                                          //dancing tree
 
-    private int numCorrectTracks = 0;
-    private int numCorrectSliders = 0;
+    private int numCorrectTracks = 0;                           //current number of correct Tracks
+    private int numCorrectSliders = 0;                          //current number of correct Sliders
+
 
     /// <summary>
-    /// Add listeners for all music group and tablet events
-    /// </summary>
-    void Awake()
-    {
-
-
-
-    }
-
-    /// <summary>
+    /// Makes cursor invisible
     /// Start all music groups
+    /// Adds listeners to all events
     /// </summary>
     void Start()
     {
+        //lock cursor and make invisible
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        //Starts music groups
         drum.StartAll();
         rhythm.StartAll();
         lead.StartAll();
 
+        //add listeners to drum music group
         drum.correctTrackEvent.AddListener(CorrectTrack);
         drum.incorrectTrackEvent.AddListener(IncorrectTrack);
         drum.correctValueEvent.AddListener(CorrectSlider);
         drum.incorrectValueEvent.AddListener(IncorrectSlider);
 
+        //add listeners to rhythm music group
         rhythm.correctTrackEvent.AddListener(CorrectTrack);
         rhythm.incorrectTrackEvent.AddListener(IncorrectTrack);
         rhythm.correctValueEvent.AddListener(CorrectSlider);
         rhythm.incorrectValueEvent.AddListener(IncorrectSlider);
 
+        //add listeners to lead music group
         lead.correctTrackEvent.AddListener(CorrectTrack);
         lead.incorrectTrackEvent.AddListener(IncorrectTrack);
         lead.correctValueEvent.AddListener(CorrectSlider);
         lead.incorrectValueEvent.AddListener(IncorrectSlider);
 
+        //add listeners to tablets
         drumTablet.tabletActivate.AddListener(FocusMusic);
         pianoTablet.tabletActivate.AddListener(FocusMusic);
         guitarTablet.tabletActivate.AddListener(FocusMusic);
@@ -61,10 +63,12 @@ public class GameManager : MonoBehaviour
     /// </summary>
     void CorrectTrack()
     {
+        //increment correct track
         numCorrectTracks++;
-        print("Hell yeah, " + numCorrectTracks);
 
+        //tell tree to start dancing
         tree.StartDancing();
+
         //If there are now 3 correct tracks
         if (numCorrectTracks == 3)
         {
@@ -80,11 +84,12 @@ public class GameManager : MonoBehaviour
     /// </summary>
     void IncorrectTrack()
     {
+        //decrement correct track
         numCorrectTracks--;
 
-        print("Hell nah, " + numCorrectTracks);
-
+        //tell the tree to stop dancing
         tree.StopDancing();
+
         //If there are no longer 3 correct tracks
         if (numCorrectTracks != 3)
         {
@@ -106,10 +111,10 @@ public class GameManager : MonoBehaviour
     /// </param>
     void CorrectSlider(int group)
     {
+        //increment correct Sliders
         numCorrectSliders++;
 
-        print("AWESOME " + numCorrectSliders);
-
+        //Activate particles of the proper tablet
         if (group == 0)
         {
             drumTablet.ActivateParticles();
@@ -125,7 +130,7 @@ public class GameManager : MonoBehaviour
             guitarTablet.ActivateParticles();
         }
 
-        //if all sliders are correct
+        //if all sliders are correct, activate final rock
         if (numCorrectSliders == 3)
         {
             finalRock.Activate();
@@ -143,9 +148,10 @@ public class GameManager : MonoBehaviour
     /// </param>
     void IncorrectSlider(int group)
     {
+        //decrement correct sliders
         numCorrectSliders--;
-        print("NOOOOO " + numCorrectSliders);
 
+        //DeActivate particles of proper tablet
         if (group == 0)
         {
             drumTablet.DeactivateParticles();
@@ -163,9 +169,9 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// Raises the volume of the associated group, lowers all others
     /// </summary>
-    /// <param name="group"></param>
+    /// <param name="group"> group number to adjust volume of </param>
     void FocusMusic(int group)
     {
         string rock = "";

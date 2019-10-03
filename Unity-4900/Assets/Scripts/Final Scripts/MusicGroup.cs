@@ -9,13 +9,13 @@ public class SliderEvent : UnityEvent<int>{}
 public class MusicGroup : MonoBehaviour
 {
     [SerializeField]
-    int groupNumber = -1;
+    int groupNumber = -1;                                       //group number of this music group
     [SerializeField]
-    AudioMixer mixer;
+    AudioMixer mixer;                                           //audio mixer to change values of
 
-    string flange = "Flange";
-    string chorus = "Chorus";
-    string reverb = "Reverb";
+    const string FLANGE = "Flange";                             //constant flange variable string
+    const string CHORUS = "Chorus";                             //constant chorus variable string
+    const string REVERB = "Reverb";                             //constant reverb variable string
 
     private AudioSource[] sources;                              //List of Audio sources of children objects
     private bool isPlaying = false;                             //Indicates whether children Audio Sources are playing
@@ -26,12 +26,12 @@ public class MusicGroup : MonoBehaviour
     private float fadeMult = .5f;                               //multiplier for fade time
     
 
-    private int correctTrack = 0;
-    private float correctValue = .5f;
-    public UnityEvent correctTrackEvent;
-    public UnityEvent incorrectTrackEvent;
-    public SliderEvent correctValueEvent;
-    public SliderEvent incorrectValueEvent;
+    private int correctTrack = 0;                               //correct track number, set by GameManager
+    private float correctValue = .5f;                           //correct slider value, set by GameManager
+    public UnityEvent correctTrackEvent;                        //Event invoked on unMuting the correct track
+    public UnityEvent incorrectTrackEvent;                      //Event invoked on unMuting the incorrect track
+    public SliderEvent correctValueEvent;                       //Event invoked on choosing the correct slider value
+    public SliderEvent incorrectValueEvent;                     //Event invoked on choosing the incorrect slider value
 
     /// <summary>
     /// Called on creation
@@ -40,7 +40,9 @@ public class MusicGroup : MonoBehaviour
     /// </summary>
     void Awake()
     {
+        //Get audio sources
         sources = GetComponentsInChildren<AudioSource>();
+        //create all events
         correctTrackEvent = new UnityEvent();
         incorrectTrackEvent = new UnityEvent();
         correctValueEvent = new SliderEvent();
@@ -111,6 +113,11 @@ public class MusicGroup : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Sets the correctTrack and correctValue variables
+    /// </summary>
+    /// <param name="track"> value to set correctTrack to </param>
+    /// <param name="val"> value to set correctValue to </param>
     public void SetCorrect(int track, float val)
     {
         correctTrack = track;
@@ -160,95 +167,126 @@ public class MusicGroup : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Updates a specific audio effect dependent on group number
+    /// </summary>
+    /// <param name="val"> value between 0 and 1 to set the audio effect to </param>
     public void UpdateEffect(float val)
     {
+        //give val a max of 1.0 and a min of 0
         if (val > 1.0f)
             val = 1.0f;
         if (val < 0)
             val = 0;
 
-        //reverb
+        //If groupNumber == 0, update reverb
         if (groupNumber == 0)
         {
             UpdateReverb(val);
         }
 
-        //chorus
+        //If groupNumber == 1, update chorus
         else if (groupNumber == 1)
         {
             UpdateChorus(val);
         }
 
-        //flange
+        //fIf groupNumber ==2, update flange
         else if (groupNumber == 2)
         {
             UpdateFlange(val);
         }
     }
 
+    /// <summary>
+    /// Sets the chorus depth  to a value between 0 and .5f
+    /// Invokes necessary slider event
+    /// </summary>
+    /// <param name="val"> value to set chorus to</param>
     void UpdateChorus(float val)
     {
+        //Chorus depth must be a value between 0 and .5
+        //Get current chorus depth value, convert to float between 0 and 1
         float f = 0;
-        mixer.GetFloat(chorus, out f);
+        mixer.GetFloat(CHORUS, out f);
         f *= 2f;
 
+        //If val is in range when it was not previously, invoke correctValueEvent
         if (InRange(val) && !InRange(f))
         {
             correctValueEvent.Invoke(groupNumber);
-            print("chorus invoked");
         }
 
+        //If val isn't in range when it was previously, invoke incorrectValueEvent
         if (InRange(f) && !InRange(val))
         {
             incorrectValueEvent.Invoke(groupNumber);
         }
 
-
-        mixer.SetFloat(chorus, val / 2f);
+        //set chorus to val/2, ensures depth between 0 and .5
+        mixer.SetFloat(CHORUS, val / 2f);
     }
 
+    /// <summary>
+    /// Sets reverb room to a value between -3000 and 500
+    /// </summary>
+    /// <param name="val"></param>
     void UpdateReverb(float val)
     {
-        //-500 to -3000
+        //Reverb room must be a value between -3000 and -500
+        //Get current room value, convert to float between 0 and 1
         float f = 0;
-        mixer.GetFloat(reverb, out f);
+        mixer.GetFloat(REVERB, out f);
         f += 3000;
         f /= 2500f;
 
+        //If val is in range when it was not previously, invoke correctValueEvent
         if (InRange(val) && !InRange(f))
         {
             correctValueEvent.Invoke(groupNumber);
-            print("reverb invoked");
         }
 
+        //If val isn't in range when it was previously, invoke incorrectValueEvent
         if (InRange(f) && !InRange(val))
         {
             incorrectValueEvent.Invoke(groupNumber);
         }
 
-        mixer.SetFloat(reverb, (val * 2500f) - 3000);
+        //set reverb to val*2500 - 3000
+        mixer.SetFloat(REVERB, (val * 2500f) - 3000);
     }
 
+    /// <summary>
+    /// Sets the flange depth to a value between 00 and 1
+    /// </summary>
+    /// <param name="val"></param>
     void UpdateFlange(float val)
     {
+        //flange depth must be a value between 0 and 1
         float f = 0;
-        mixer.GetFloat(flange, out f);
+        mixer.GetFloat(FLANGE, out f);
 
+        //If val is in range when it was not previously, invoke correctValueEvent
         if (InRange(val) && !InRange(f))
         {
             correctValueEvent.Invoke(groupNumber);
-            print("flange invoked");
         }
 
+        //If val isn't in range when it was previously, invoke incorrectValueEvent
         if (InRange(f) && !InRange(val))
         {
             incorrectValueEvent.Invoke(groupNumber);
         }
 
-        mixer.SetFloat(flange, val);
+        //set flange to val
+        mixer.SetFloat(FLANGE, val);
     }
 
+    /// <summary>
+    /// Determines whether given value is in range of correct value
+    /// </summary>
+    /// <param name="val"> float value between 0 and 1 to test</param>
+    /// <returns> returns true if val is within .1 of correctValue in either direction </returns>
     bool InRange(float val)
     {
         return (val < correctValue + .1f && val > correctValue - .1f);
