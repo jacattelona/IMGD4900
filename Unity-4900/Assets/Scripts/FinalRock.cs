@@ -20,6 +20,8 @@ public class FinalRock : Tablet
 
     private int numCorrect = 0;
 
+    public AudioClip interactNoise;
+
     void Start()
     {
         dirt.SetActive(false);
@@ -40,12 +42,14 @@ public class FinalRock : Tablet
             {
                 dirt.SetActive(false);
                 state = State.AboveGround;
+                GetComponent<AudioSource>().clip = interactNoise;
             }
         }
     }
 
     public void Activate()
     {
+        GetComponent<AudioSource>().Play();
         if (state == State.UnderGround)
         {
             state = State.Emerging;
