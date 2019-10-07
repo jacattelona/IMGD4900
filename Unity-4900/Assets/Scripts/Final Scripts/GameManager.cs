@@ -1,9 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class GameManager : MonoBehaviour
 {
+    const float MAT_MAX = .45f;
+    const float MAT_RATE = .225f;
+
+    enum MatState
+    {
+        None,
+        Increasing,
+        Decreasing
+    }
+    MatState matState = MatState.None;
+    [SerializeField]
+    Material glowMat;
+
     [SerializeField]
     private MusicGroup drum, rhythm, lead;                      //Music groups
     [SerializeField]
@@ -16,6 +30,20 @@ public class GameManager : MonoBehaviour
     private int numCorrectTracks = 0;                           //current number of correct Tracks
     private int numCorrectSliders = 0;                          //current number of correct Sliders
 
+    enum VolState
+    {
+        None,
+        Increasing,
+        Decreasing
+    }
+    VolState volState = VolState.None;
+
+    float volume = 0f;
+    int volumeFocus = -1;
+    float volumeRate = 10f;
+    float volumeMax = 10f;
+    string[] volumeLevels = { "DrumVolume", "RhythmVolume", "LeadVolume" };
+    public AudioMixer mixer;
 
     /// <summary>
     /// Makes cursor invisible
@@ -55,6 +83,86 @@ public class GameManager : MonoBehaviour
         drumTablet.tabletActivate.AddListener(FocusMusic);
         pianoTablet.tabletActivate.AddListener(FocusMusic);
         guitarTablet.tabletActivate.AddListener(FocusMusic);
+
+        glowMat.SetFloat("_node_3398", 0);
+    }
+
+    void Update()
+    {
+        if (volState != VolState.None)
+        {
+            volume += Time.deltaTime * volumeRate;
+
+            for (int x = 0; x < volumeLevels.Length; x++)
+            {
+                string paramName = volumeLevels[x];
+
+                if (x == volumeFocus)
+                {
+                    if (volState == VolState.Increasing)
+                    {
+                        mixer.SetFloat(paramName, 0 + volume);
+                    }
+                    else if (volState == VolState.Decreasing)
+                    {
+                        mixer.SetFloat(paramName, volumeMax - volume);
+                    }
+                }
+
+                else if (x != volumeFocus)
+                {
+                    if (volState == VolState.Increasing)
+                    {
+                        mixer.SetFloat(paramName, 0 - volume);
+                    }
+
+                    else if (volState == VolState.Decreasing)
+                    {
+                        mixer.SetFloat(paramName, (volumeMax * -1) + volume);
+                    }
+                }
+            }
+
+            if (volume >= volumeMax)
+            {
+                volume = 0;
+
+                if (volState == VolState.Decreasing)
+                {
+                    volumeFocus = -1;
+                }
+
+                volState = VolState.None;
+            }
+        }
+
+
+        if (matState == MatState.Increasing)
+        {
+            float val = glowMat.GetFloat("_node_3398");
+            if (val < MAT_MAX)
+            {
+                val += Time.deltaTime * MAT_RATE;
+                glowMat.SetFloat("_node_3398", val);
+            }
+            else
+            {
+                matState = MatState.None;
+            }
+        }
+        else if (matState == MatState.Decreasing)
+        {
+            float val = glowMat.GetFloat("_node_3398");
+            if (val > 0)
+            {
+                val -= Time.deltaTime * MAT_RATE;
+                glowMat.SetFloat("_node_3398", val);
+            }
+            else
+            {
+                matState = MatState.None;
+            }
+        }
     }
 
 
@@ -76,6 +184,8 @@ public class GameManager : MonoBehaviour
             drumTablet.ActivateSlider();
             pianoTablet.ActivateSlider();
             guitarTablet.ActivateSlider();
+
+            matState = MatState.Increasing;
         }
     }
 
@@ -97,6 +207,8 @@ public class GameManager : MonoBehaviour
             drumTablet.DeactivateSlider();
             pianoTablet.DeactivateSlider();
             guitarTablet.DeactivateSlider();
+
+            matState = MatState.Decreasing;
         }
     }
 
@@ -174,16 +286,14 @@ public class GameManager : MonoBehaviour
     /// <param name="group"> group number to adjust volume of </param>
     void FocusMusic(int group)
     {
-        string rock = "";
-        if (group == 0)
-            rock = "drums";
-        if (group == 1)
-            rock = "piano";
-        if (group == 2)
-            rock = "guitar";
-        if (group == -1)
-            rock = "none";
-
-        print("Focusing on rock " + rock);
+        if (group != -1 && group != volumeFocus)
+        {
+            volumeFocus = group;
+            volState = VolState.Increasing;
+        }
+        else if (group == -1 && volumeFocus != -1)
+        {
+            volState = VolState.Decreasing;
+        }
     }
 }

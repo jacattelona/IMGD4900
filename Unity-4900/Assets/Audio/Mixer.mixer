@@ -309,10 +309,16 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
+  - guid: 49b94f6ebaea153418d10150c16ac4a8
+    name: DrumVolume
   - guid: cf90c88d36508e14f96f3c258c9f613e
     name: Reverb
+  - guid: 3addbb6d4477fc4499d1ec1ef2628ba0
+    name: LeadVolume
   - guid: 7e3c64fc9d4a2564588d70fbdc7adcf1
     name: Flange
+  - guid: b9d81c2603c476944876df31664063a2
+    name: RhythmVolume
   - guid: 014570af9ba50754783c39bd974c5e18
     name: Chorus
   m_AudioMixerGroupViews:
@@ -386,6 +392,7 @@ AudioMixerSnapshotController:
     e0eacf626f8186a42a4c9e60afeb1b54: 0.244
     a2908e5365da01f48955390aaa182d05: 0
     927594941a0d67c46b94449a464a4ae3: 2
+    b9d81c2603c476944876df31664063a2: 0
     1e1064982c473174dbb77c5a84c05a84: 0.62299997
     f82feb99e0fb7824dbe472f990b6326e: 0.775
     cfe979f973b3a404db213733aba76ef3: 1
@@ -394,6 +401,7 @@ AudioMixerSnapshotController:
     5a1a02cc5d1c1564ca1a30eccf3f2663: 0.498
     7e3c64fc9d4a2564588d70fbdc7adcf1: 0.01
     cf90c88d36508e14f96f3c258c9f613e: -3026
+    49b94f6ebaea153418d10150c16ac4a8: -80
     014570af9ba50754783c39bd974c5e18: 0
   m_TransitionOverrides: {}
 --- !u!244 &590163924801716533

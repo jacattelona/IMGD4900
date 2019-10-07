@@ -7,6 +7,19 @@ public class TabletEvent : UnityEvent<int> {}
 
 public class Tablet : MonoBehaviour
 {
+    const float SLIDER_RATE = .5f;      //Rate at which slider appears and disappears
+
+    enum SliderState                    //Enum describing slider state
+    {
+        None,
+        Appearing,
+        Disappearing
+    }
+                                        //Current state of slider
+    SliderState sliderState = SliderState.None;
+    GameObject slider;                  //Slider object to set active
+    CanvasGroup cg;                     //Canvas group of slider element
+
     bool inRock = false;                //Determines whether character is in the rock trigger
 
     public int tabletNum;               //number of this tablet
@@ -16,16 +29,16 @@ public class Tablet : MonoBehaviour
     public Vector3 camLocation;         //World location to move camera to when interacting with this tablet
     public float angleX;                //xAngle to tilt camera when interacting with this tablet
     public float angleY;                //yAngle to tilt camera when interacting with this tablet
-
-    public Material[] mats1;            //materials to use when sliders are not activated
-    public Material[] mats2;            //materials to use when sliders are activated
+    
     
     /// <summary>
     /// Called on creation. Creates tabletActivate event
     /// </summary>
-    void Awake()
+    protected virtual void Awake()
     {
         tabletActivate = new TabletEvent();
+        slider = transform.GetChild(0).GetChild(0).gameObject;
+        cg = slider.GetComponent<CanvasGroup>();
     }
 
 
@@ -90,6 +103,31 @@ public class Tablet : MonoBehaviour
             //fire tabletActivate event with deactivate case (-1)
             tabletActivate.Invoke(-1);
         }
+
+        if (sliderState == SliderState.Appearing)
+        {
+            if (cg.alpha < 1)
+            {
+                cg.alpha += Time.deltaTime * SLIDER_RATE;
+            }
+            else
+            {
+                sliderState = SliderState.None;
+            }
+        }
+
+        else if (sliderState == SliderState.Disappearing)
+        {
+            if (cg.alpha > 0)
+            {
+                cg.alpha -= Time.deltaTime * SLIDER_RATE;
+            }
+            else
+            {
+                sliderState = SliderState.None;
+                slider.SetActive(false);
+            }
+        }
     }
 
     /// <summary>
@@ -97,8 +135,8 @@ public class Tablet : MonoBehaviour
     /// </summary>
     public void ActivateSlider()
     {
-        transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
-        GetComponent<Renderer>().materials = mats2;
+        slider.SetActive(true);
+        sliderState = SliderState.Appearing;
     }
 
     /// <summary>
@@ -106,8 +144,7 @@ public class Tablet : MonoBehaviour
     /// </summary>
     public void DeactivateSlider()
     {
-        transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
-        GetComponent<Renderer>().materials = mats1;
+        sliderState = SliderState.Disappearing;
     }
 
     /// <summary>

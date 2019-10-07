@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class FinalRock : Tablet
 {
-    enum State
+    enum RockState
     {
         UnderGround,
         Emerging,
         AboveGround
     }
 
-    private State state = State.UnderGround;
+    private RockState rockState = RockState.UnderGround;
 
     //public Vector3 underGround;
     public Vector3 aboveGround;
@@ -19,6 +19,11 @@ public class FinalRock : Tablet
     private Vector3 velocity = Vector3.zero;
 
     private int numCorrect = 0;
+
+    protected override void Awake()
+    {
+        tabletActivate = new TabletEvent();
+    }
 
     void Start()
     {
@@ -32,23 +37,23 @@ public class FinalRock : Tablet
         if (Input.GetKeyDown(KeyCode.P))
             Activate();
 
-        if (state == State.Emerging)
+        if (rockState == RockState.Emerging)
         {
             transform.localPosition = Vector3.SmoothDamp(transform.localPosition, aboveGround, ref velocity, 2f);
 
             if (Vector3.Distance(transform.localPosition, aboveGround) <= .05f)
             {
                 dirt.SetActive(false);
-                state = State.AboveGround;
+                rockState = RockState.AboveGround;
             }
         }
     }
 
     public void Activate()
     {
-        if (state == State.UnderGround)
+        if (rockState == RockState.UnderGround)
         {
-            state = State.Emerging;
+            rockState = RockState.Emerging;
             dirt.SetActive(true);
         }
     }
@@ -57,7 +62,7 @@ public class FinalRock : Tablet
     {
         numCorrect += val;
         print(numCorrect);
-        if (numCorrect >= 3 && state == State.UnderGround)
+        if (numCorrect >= 3 && rockState == RockState.UnderGround)
             Activate();
     }
 }

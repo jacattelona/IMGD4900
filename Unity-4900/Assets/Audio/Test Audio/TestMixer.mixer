@@ -98,6 +98,8 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
+  - guid: 7e244ba78b84d724e96159430a162866
+    name: TestVol
   - guid: f08bc6e4380c3a048abd00c0e3f1cf69
     name: DepthLevel
   - guid: 609eb61f97d80864faa7cf01ae5744ae
@@ -163,6 +165,7 @@ AudioMixerSnapshotController:
     78ac93e0399a9024eb8c954888840398: 1.5400002
     f08bc6e4380c3a048abd00c0e3f1cf69: 0.359
     75425f165a2e29349ac54cccff8ad743: 3
+    7e244ba78b84d724e96159430a162866: 0
     af2e14e77a1e36544bf1b6438bdfb092: 1
     eff57c18174ef28468067ed84c96a041: 762.9867
     f319f248038cb1645bdff80a5af7ab82: 1
