@@ -79,6 +79,10 @@ public class Tablet : MonoBehaviour
         //If player left clicks while in the rock trigger
         if (Input.GetMouseButtonDown(0) && inRock)
         {
+            if (Cursor.visible != true)
+            {
+                GetComponent<AudioSource>().Play();
+            }
             //lock camera to proper location and angle
             character.LockCam(camLocation, angleY, angleX);
 
@@ -88,12 +92,14 @@ public class Tablet : MonoBehaviour
 
             //fire tabletActivate event
             tabletActivate.Invoke(tabletNum);
+
         }
 
         //If player right clicks while in the rock trigger
         else if ((Input.GetMouseButtonDown(1) || Input.GetKeyDown("escape")) && inRock)
         {
             //unlock camera
+            GetComponent<AudioSource>().Play();
             character.UnlockCam();
 
             //make cursor invisible
