@@ -7061,6 +7061,25 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!95 &317284367
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 317284361}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 24f9558824e96644e8eb9249e61a82f9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &381602168
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12011,15 +12030,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.43216443
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.90179485
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 51.21
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_HDR
@@ -18172,8 +18191,6 @@ MonoBehaviour:
   camLocation: {x: -0.45, y: 2.5, z: 6.6}
   angleX: -10
   angleY: 175
-  mats1: []
-  mats2: []
   aboveGround: {x: 3.12, y: -0.71, z: 7.23}
   dirt: {fileID: 2063555363}
 --- !u!1 &885909847 stripped
@@ -23329,12 +23346,6 @@ MonoBehaviour:
   camLocation: {x: -11, y: 1.8, z: 1.25}
   angleX: -7
   angleY: 90
-  mats1:
-  - {fileID: 2100000, guid: c54d017df51c7814fb913830f5d2e975, type: 2}
-  - {fileID: 0}
-  mats2:
-  - {fileID: 2100000, guid: c54d017df51c7814fb913830f5d2e975, type: 2}
-  - {fileID: 2100000, guid: 2b39f15d61c261544a7a637319b8daa6, type: 2}
 --- !u!65 &964693498
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25383,12 +25394,6 @@ MonoBehaviour:
   camLocation: {x: 10, y: -2, z: 2}
   angleX: -5.5
   angleY: -105
-  mats1:
-  - {fileID: 2100000, guid: 3ef4e5538e9990141a8176dc982df27f, type: 2}
-  - {fileID: 0}
-  mats2:
-  - {fileID: 2100000, guid: 3ef4e5538e9990141a8176dc982df27f, type: 2}
-  - {fileID: 2100000, guid: 2b39f15d61c261544a7a637319b8daa6, type: 2}
 --- !u!198 &1350446123
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -43782,12 +43787,6 @@ MonoBehaviour:
   camLocation: {x: -1.2, y: 1.7, z: -10.6}
   angleX: 0
   angleY: 0
-  mats1:
-  - {fileID: 2100000, guid: 3b4aab79de3eaa844aeecfbcaab64487, type: 2}
-  - {fileID: 0}
-  mats2:
-  - {fileID: 2100000, guid: 3b4aab79de3eaa844aeecfbcaab64487, type: 2}
-  - {fileID: 2100000, guid: 2b39f15d61c261544a7a637319b8daa6, type: 2}
 --- !u!65 &4474497363023277447
 BoxCollider:
   m_ObjectHideFlags: 0
