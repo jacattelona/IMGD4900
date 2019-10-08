@@ -16,6 +16,8 @@ public class FinalRock : Tablet
     //public Vector3 underGround;
     public Vector3 aboveGround;
     public GameObject dirt;
+    public AudioClip emerge;
+
     private Vector3 velocity = Vector3.zero;
 
     private int numCorrect = 0;
@@ -23,6 +25,7 @@ public class FinalRock : Tablet
     protected override void Awake()
     {
         tabletActivate = new TabletEvent();
+        aud = GetComponent<AudioSource>();
     }
 
     void Start()
@@ -39,7 +42,7 @@ public class FinalRock : Tablet
 
         if (rockState == RockState.Emerging)
         {
-            transform.localPosition = Vector3.SmoothDamp(transform.localPosition, aboveGround, ref velocity, 2f);
+            transform.localPosition = Vector3.SmoothDamp(transform.localPosition, aboveGround, ref velocity, 3f);
 
             if (Vector3.Distance(transform.localPosition, aboveGround) <= .05f)
             {
@@ -55,6 +58,8 @@ public class FinalRock : Tablet
         {
             rockState = RockState.Emerging;
             dirt.SetActive(true);
+            //aud.PlayOneShot(emerge);
+            aud.PlayOneShot(emerge, .5f);
         }
     }
 

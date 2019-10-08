@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Tree : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class Tree : MonoBehaviour
 
     [SerializeField]
     GameObject victoryParticles;        //Tree particle effect
+
+    public UnityEvent victoryEvent = new UnityEvent();
 
     int beatCount = 0;                  //number of beats
     int count = 0;                      //frames counting to each beat
@@ -177,5 +180,6 @@ public class Tree : MonoBehaviour
     {
         victoryParticles.SetActive(true);
         glowing = true;
+        victoryEvent.Invoke();
     }
 }

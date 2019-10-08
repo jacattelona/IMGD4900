@@ -8,6 +8,7 @@ public class TabletEvent : UnityEvent<int> {}
 public class Tablet : MonoBehaviour
 {
     const float SLIDER_RATE = .5f;      //Rate at which slider appears and disappears
+    const float GLYPH_RATE = .8f;       //Rate at which glyphs appear and disappear
 
     enum SliderState                    //Enum describing slider state
     {
@@ -19,6 +20,7 @@ public class Tablet : MonoBehaviour
     SliderState sliderState = SliderState.None;
     GameObject slider;                  //Slider object to set active
     CanvasGroup cg;                     //Canvas group of slider element
+    protected AudioSource aud;          //audio source of the tablet
 
     bool inRock = false;                //Determines whether character is in the rock trigger
 
@@ -30,7 +32,16 @@ public class Tablet : MonoBehaviour
     public float angleX;                //xAngle to tilt camera when interacting with this tablet
     public float angleY;                //yAngle to tilt camera when interacting with this tablet
     
-    
+    enum GlyphState
+    {
+        None,
+        Appearing,
+        Disappearing
+    }
+    GlyphState glyphState = GlyphState.None;
+    Material mat;
+    float glowVal = 0;
+
     /// <summary>
     /// Called on creation. Creates tabletActivate event
     /// </summary>
@@ -39,6 +50,7 @@ public class Tablet : MonoBehaviour
         tabletActivate = new TabletEvent();
         slider = transform.GetChild(0).GetChild(0).gameObject;
         cg = slider.GetComponent<CanvasGroup>();
+        aud = GetComponent<AudioSource>();
     }
 
 
@@ -51,6 +63,8 @@ public class Tablet : MonoBehaviour
         DeactivateParticles();
         //deactivates slider
         DeactivateSlider();
+        mat = GetComponent<Renderer>().material;
+        mat.SetColor("_EmissionColor", new Color(1.0f, 1.0f, 1.0f, 1.0f) * glowVal);
     }
 
     /// <summary>
@@ -79,9 +93,9 @@ public class Tablet : MonoBehaviour
         //If player left clicks while in the rock trigger
         if (Input.GetMouseButtonDown(0) && inRock)
         {
-            if (Cursor.visible != true)
+            if (!Cursor.visible)
             {
-                GetComponent<AudioSource>().Play();
+                aud.Play();
             }
             //lock camera to proper location and angle
             character.LockCam(camLocation, angleY, angleX);
@@ -98,8 +112,12 @@ public class Tablet : MonoBehaviour
         //If player right clicks while in the rock trigger
         else if ((Input.GetMouseButtonDown(1) || Input.GetKeyDown("escape")) && inRock)
         {
+            if (Cursor.visible)
+            {
+                aud.Play();
+            }
+
             //unlock camera
-            GetComponent<AudioSource>().Play();
             character.UnlockCam();
 
             //make cursor invisible
@@ -134,6 +152,32 @@ public class Tablet : MonoBehaviour
                 slider.SetActive(false);
             }
         }
+
+        if (glyphState == GlyphState.Appearing)
+        {
+            glowVal += Time.deltaTime * GLYPH_RATE;
+
+            if (glowVal >= 1.0f)
+            {
+                glowVal = 1.0f;
+                glyphState = GlyphState.None;
+            }
+
+            mat.SetColor("_EmissionColor", new Color(1.0f, 1.0f, 1.0f, 1.0f) * glowVal);
+        }
+
+        else if (glyphState == GlyphState.Disappearing)
+        {
+            glowVal -= Time.deltaTime * GLYPH_RATE;
+
+            if (glowVal <= 0)
+            {
+                glowVal = 0;
+                glyphState = GlyphState.None;
+            }
+
+            mat.SetColor("_EmissionColor", new Color(1.0f, 1.0f, 1.0f, 1.0f) * glowVal);
+        }
     }
 
     /// <summary>
@@ -159,6 +203,7 @@ public class Tablet : MonoBehaviour
     public void ActivateParticles()
     {
         GetComponent<ParticleSystem>().Play();
+        glyphState = GlyphState.Appearing;
     }
 
     /// <summary>
@@ -167,5 +212,6 @@ public class Tablet : MonoBehaviour
     public void DeactivateParticles()
     {
         GetComponent<ParticleSystem>().Stop();
+        glyphState = GlyphState.Disappearing;
     }
 }
