@@ -37,9 +37,6 @@ public class FinalRock : Tablet
     {
         base.Update();
 
-        if (Input.GetKeyDown(KeyCode.P))
-            Activate();
-
         if (rockState == RockState.Emerging)
         {
             transform.localPosition = Vector3.SmoothDamp(transform.localPosition, aboveGround, ref velocity, 3f);
