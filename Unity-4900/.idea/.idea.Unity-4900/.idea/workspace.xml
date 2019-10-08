@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="257b0a6f-298e-412e-a021-bcda2a544960" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Standard Assets/Characters/FirstPersonCharacter/Scripts/FirstPersonController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Standard Assets/Characters/FirstPersonCharacter/Scripts/FirstPersonController.cs" afterDir="false" />
-    </list>
+    <list default="true" id="257b0a6f-298e-412e-a021-bcda2a544960" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,7 +9,49 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Final Scripts/Tablet.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="126" selection-start-line="126" selection-end-line="126" />
+              <folding>
+                <marker date="1570484461369" expanded="false" signature="6:104" ph="..." />
+                <marker date="1570484461369" expanded="true" signature="188:4888" ph="{...}" />
+                <marker date="1570484461369" expanded="true" signature="348:414" ph="{...}" />
+                <marker date="1570484461369" expanded="true" signature="1402:1491" ph="/// Called on creation. Creates tabletActivate event ... " />
+                <marker date="1570484461369" expanded="true" signature="1526:1694" ph="{...}" />
+                <marker date="1570484461369" expanded="true" signature="1701:1793" ph="/// Sets tablet to default state before the first frame ... " />
+                <marker date="1570484461369" expanded="true" signature="1810:1942" ph="{...}" />
+                <marker date="1570484461369" expanded="true" signature="1948:2065" ph="/// sets inRock to true on entering trigger ... " />
+                <marker date="1570484461369" expanded="true" signature="2105:2140" ph="{...}" />
+                <marker date="1570484461369" expanded="true" signature="2146:2263" ph="/// Sets inRock to false on exiting trigger ... " />
+                <marker date="1570484461369" expanded="true" signature="2302:2338" ph="{...}" />
+                <marker date="1570484461369" expanded="true" signature="2344:2403" ph="/// Called every frame ... " />
+                <marker date="1570484461369" expanded="true" signature="2431:4138" ph="{...}" />
+                <marker date="1570484461369" expanded="true" signature="2546:3011" ph="{...}" />
+                <marker date="1570484461369" expanded="true" signature="2596:2676" ph="{...}" />
+                <marker date="1570484461369" expanded="true" signature="3159:3523" ph="{...}" />
+                <marker date="1570484461369" expanded="true" signature="3574:3803" ph="{...}" />
+                <marker date="1570484461369" expanded="true" signature="3614:3700" ph="{...}" />
+                <marker date="1570484461369" expanded="true" signature="3717:3793" ph="{...}" />
+                <marker date="1570484461369" expanded="true" signature="3862:4132" ph="{...}" />
+                <marker date="1570484461369" expanded="true" signature="3902:3988" ph="{...}" />
+                <marker date="1570484461369" expanded="true" signature="4005:4122" ph="{...}" />
+                <marker date="1570484461369" expanded="true" signature="4144:4231" ph="/// Activates slider object, adds glowing material ... " />
+                <marker date="1570484461369" expanded="true" signature="4264:4353" ph="{...}" />
+                <marker date="1570484461369" expanded="true" signature="4359:4451" ph="/// Deactivates slider object, removes glowing material ... " />
+                <marker date="1570484461369" expanded="true" signature="4486:4546" ph="{...}" />
+                <marker date="1570484461369" expanded="true" signature="4552:4619" ph="/// Activates particle effects ... " />
+                <marker date="1570484461369" expanded="true" signature="4655:4714" ph="{...}" />
+                <marker date="1570484461369" expanded="true" signature="4720:4789" ph="/// Deactivates particle effects ... " />
+                <marker date="1570484461369" expanded="true" signature="4827:4886" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -25,8 +65,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Prototype Scripts/Tablet.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Prototype Scripts/StartScreen.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Final Scripts/Tablet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Prototype Scripts/SoundGroup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Standard Assets/Characters/FirstPersonCharacter/Scripts/FirstPersonController.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -51,6 +90,11 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="SolutionExplorer">
+        <option name="show-all-files" value="false" />
+      </pane>
+      <pane id="AssemblyExplorer" />
+      <pane id="FileSystemExplorer" />
       <pane id="UnityExplorer">
         <subPane>
           <expand>
@@ -64,11 +108,6 @@
         <option name="show-hidden-items" value="false" />
         <option name="show-project-names" value="true" />
       </pane>
-      <pane id="AssemblyExplorer" />
-      <pane id="SolutionExplorer">
-        <option name="show-all-files" value="false" />
-      </pane>
-      <pane id="FileSystemExplorer" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -119,11 +158,12 @@
       <workItem from="1569919270373" duration="547000" />
       <workItem from="1569921819815" duration="42000" />
       <workItem from="1569974108529" duration="1359000" />
+      <workItem from="1570494589843" duration="598000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3284000" />
+    <option name="totallyTimeSpent" value="3882000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -136,8 +176,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14308426" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14427663" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -303,6 +344,45 @@
             <marker date="1569974401097" expanded="true" signature="11546:11964" ph="{...}" />
             <marker date="1569974401097" expanded="true" signature="12007:12193" ph="{...}" />
             <marker date="1569974401097" expanded="true" signature="12078:12183" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Final Scripts/Tablet.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="126" selection-start-line="126" selection-end-line="126" />
+          <folding>
+            <marker date="1570484461369" expanded="false" signature="6:104" ph="..." />
+            <marker date="1570484461369" expanded="true" signature="188:4888" ph="{...}" />
+            <marker date="1570484461369" expanded="true" signature="348:414" ph="{...}" />
+            <marker date="1570484461369" expanded="true" signature="1402:1491" ph="/// Called on creation. Creates tabletActivate event ... " />
+            <marker date="1570484461369" expanded="true" signature="1526:1694" ph="{...}" />
+            <marker date="1570484461369" expanded="true" signature="1701:1793" ph="/// Sets tablet to default state before the first frame ... " />
+            <marker date="1570484461369" expanded="true" signature="1810:1942" ph="{...}" />
+            <marker date="1570484461369" expanded="true" signature="1948:2065" ph="/// sets inRock to true on entering trigger ... " />
+            <marker date="1570484461369" expanded="true" signature="2105:2140" ph="{...}" />
+            <marker date="1570484461369" expanded="true" signature="2146:2263" ph="/// Sets inRock to false on exiting trigger ... " />
+            <marker date="1570484461369" expanded="true" signature="2302:2338" ph="{...}" />
+            <marker date="1570484461369" expanded="true" signature="2344:2403" ph="/// Called every frame ... " />
+            <marker date="1570484461369" expanded="true" signature="2431:4138" ph="{...}" />
+            <marker date="1570484461369" expanded="true" signature="2546:3011" ph="{...}" />
+            <marker date="1570484461369" expanded="true" signature="2596:2676" ph="{...}" />
+            <marker date="1570484461369" expanded="true" signature="3159:3523" ph="{...}" />
+            <marker date="1570484461369" expanded="true" signature="3574:3803" ph="{...}" />
+            <marker date="1570484461369" expanded="true" signature="3614:3700" ph="{...}" />
+            <marker date="1570484461369" expanded="true" signature="3717:3793" ph="{...}" />
+            <marker date="1570484461369" expanded="true" signature="3862:4132" ph="{...}" />
+            <marker date="1570484461369" expanded="true" signature="3902:3988" ph="{...}" />
+            <marker date="1570484461369" expanded="true" signature="4005:4122" ph="{...}" />
+            <marker date="1570484461369" expanded="true" signature="4144:4231" ph="/// Activates slider object, adds glowing material ... " />
+            <marker date="1570484461369" expanded="true" signature="4264:4353" ph="{...}" />
+            <marker date="1570484461369" expanded="true" signature="4359:4451" ph="/// Deactivates slider object, removes glowing material ... " />
+            <marker date="1570484461369" expanded="true" signature="4486:4546" ph="{...}" />
+            <marker date="1570484461369" expanded="true" signature="4552:4619" ph="/// Activates particle effects ... " />
+            <marker date="1570484461369" expanded="true" signature="4655:4714" ph="{...}" />
+            <marker date="1570484461369" expanded="true" signature="4720:4789" ph="/// Deactivates particle effects ... " />
+            <marker date="1570484461369" expanded="true" signature="4827:4886" ph="{...}" />
           </folding>
         </state>
       </provider>
