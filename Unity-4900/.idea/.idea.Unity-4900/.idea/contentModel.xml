@@ -37,20 +37,27 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="BillboardBehavior.cs" t="Include" />
+          <e p="Final Scripts" t="Include">
+            <e p="FinalRock.cs" t="Include" />
+            <e p="GameManager.cs" t="Include" />
+            <e p="MenuPan.cs" t="Include" />
+            <e p="MusicGroup.cs" t="Include" />
+            <e p="StartScreen.cs" t="Include" />
+            <e p="Tablet.cs" t="Include" />
+            <e p="Tree.cs" t="Include" />
+          </e>
           <e p="Grass.shader" t="Include" />
           <e p="Prototype Scripts" t="Include">
             <e p="CameraRotateSnowglobe.cs" t="Include" />
             <e p="EffectManager.cs" t="Include" />
-            <e p="FinalRock.cs" t="Include" />
             <e p="SoundGroup.cs" t="Include" />
             <e p="SoundManager.cs" t="Include" />
-            <e p="StartScreen.cs" t="Include" />
-            <e p="Tablet.cs" t="Include" />
             <e p="TreeManager.cs" t="Include" />
           </e>
           <e p="Test Scripts" t="Include">
             <e p="AudioChildren.cs" t="Include" />
             <e p="AudioTestScript.cs" t="Include" />
+            <e p="VolumeFade.cs" t="Include" />
           </e>
         </e>
         <e p="Shader Forge" t="Include">
