@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     Material glowMat;
 
     [SerializeField]
-    private MusicGroup drum, rhythm, lead;                      //Music groups
+    private MusicGroup drum, rhythm, lead, end;                      //Music groups
     [SerializeField]
     private Tablet drumTablet, pianoTablet, guitarTablet;       //Music tablets
     [SerializeField]
@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     float volume = 0f;
     int volumeFocus = -1;
     float volumeRate = 10f;
-    float volumeMax = 10f;
+    float volumeMax = 7f;
     string[] volumeLevels = { "DrumVolume", "RhythmVolume", "LeadVolume" };
     public AudioMixer mixer;
 
@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
         drum.StartAll();
         rhythm.StartAll();
         lead.StartAll();
+        end.StartAll();
 
         //add listeners to drum music group
         drum.correctTrackEvent.AddListener(CorrectTrack);
@@ -85,6 +86,10 @@ public class GameManager : MonoBehaviour
         guitarTablet.tabletActivate.AddListener(FocusMusic);
 
         glowMat.SetFloat("_node_3398", 0);
+
+        drum.SetCorrect((int)Random.Range(0, 5.99f), Random.Range(.2f, .8f));
+        rhythm.SetCorrect((int)Random.Range(0, 4.99f), Random.Range(.2f, .8f));
+        lead.SetCorrect((int)Random.Range(0, 4.99f), Random.Range(.2f, .8f));
     }
 
     void Update()
